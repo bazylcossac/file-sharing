@@ -14,9 +14,7 @@ function MainLayout({ children }: { children: React.ReactNode }) {
           <Navbar />
         </div>
 
-        <div className="bg-neutral-800 rounded-lg w-full h-full m-2  ">
-          {children}
-        </div>
+        <div className="rounded-lg w-full h-full m-2 ">{children}</div>
       </div>
     </div>
   );
