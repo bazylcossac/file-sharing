@@ -1,0 +1,11 @@
+{
+  "navbar": {
+    "HomePage": "Home page",
+    "MyStorage": "My storage",
+    "SharedWithMe": "Shared with me",
+    "Latest": "Latest",
+    "Starred": "Starred",
+    "Spam": "Spam",
+    "Bin": "Trash bin"
+  }
+}

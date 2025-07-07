@@ -1,0 +1,11 @@
+{
+  "navbar": {
+    "HomePage": "Strona główna",
+    "MyStorage": "Mój dysk",
+    "SharedWithMe": "Udostępnione dla mnie",
+    "Latest": "Ostatnie",
+    "Starred": "Oznaczone gwiazdką",
+    "Spam": "Spam",
+    "Bin": "Kosz"
+  }
+}
