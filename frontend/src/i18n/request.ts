@@ -5,7 +5,6 @@ export default getRequestConfig(async () => {
   // Provide a static locale, fetch a user setting,
   // read from `cookies()`, `headers()`, etc.
   const locale = "pl";
-  const locales = ["pl", "en"];
 
   const messages = await getLocaleMessage(locale);
   return {
