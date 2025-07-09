@@ -7,6 +7,7 @@ export default getRequestConfig(async () => {
   const locale = "pl";
 
   const messages = await getLocaleMessage(locale);
+
   return {
     locale,
     defaultLocale: "pl",
