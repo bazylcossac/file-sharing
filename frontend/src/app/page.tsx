@@ -3,6 +3,7 @@ import React from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
+import { zodResolver } from "@hookform/resolvers/zod";
 export default function Home() {
   const t = useTranslations();
 
