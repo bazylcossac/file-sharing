@@ -4,9 +4,19 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { loginSchema } from "@/lib/schemas/shemas";
+
+// TODO dodac validacje na polach, sprawdzania emaila na wpisywaniu czy jest taki w bazie danmych z debouncem
+
 export default function Home() {
   const t = useTranslations();
-
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    watch,
+  } = useForm({ resolver: zodResolver(loginSchema) });
   return (
     <div className="w-full h-screen flex items-center justify-center">
       <div
@@ -27,6 +37,7 @@ export default function Home() {
               placeholder="example@gmail.com"
               type="email"
               id="email-input"
+              {...register("email")}
               data-testid="email-login-input"
               required
             />
@@ -40,6 +51,7 @@ export default function Home() {
               placeholder="Your password"
               type="password"
               id="password-input"
+              {...register("password")}
               data-testid="password-login-input"
               required
             />
