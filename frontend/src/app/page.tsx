@@ -6,8 +6,9 @@ import { useTranslations } from "next-intl";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { loginSchema } from "@/lib/schemas/shemas";
+import { cn } from "@/lib/utils";
 
-// TODO dodac validacje na polach, sprawdzania emaila na wpisywaniu czy jest taki w bazie danmych z debouncem
+// TODO dodac validacje na polach, sprawdzania emaila  czy jest taki w bazie danmych
 
 export default function Home() {
   const t = useTranslations();
@@ -17,6 +18,8 @@ export default function Home() {
     formState: { errors },
     watch,
   } = useForm({ resolver: zodResolver(loginSchema) });
+  // const emailInput = watch("email");
+  // console.log(emailInput);
   return (
     <div className="w-full h-screen flex items-center justify-center">
       <div
@@ -33,14 +36,19 @@ export default function Home() {
               E-mail
             </label>
             <Input
-              className="w-[400px]"
+              className={cn(
+                "w-[400px] focus:border-[#8c5cff] focus:outline-[#8c5cff] focus:ring-0 focus-visible:ring-0",
+                {
+                  "border-1 border-red-500": errors.email,
+                }
+              )}
               placeholder="example@gmail.com"
               type="email"
               id="email-input"
-              {...register("email")}
+              {...register("email", { required: true })}
               data-testid="email-login-input"
-              required
             />
+            {errors.email && <p>ERRRO</p>}
           </div>
           <div>
             <label className="text-xs" htmlFor="password-input">
@@ -51,10 +59,10 @@ export default function Home() {
               placeholder="Your password"
               type="password"
               id="password-input"
-              {...register("password")}
+              {...register("password", { required: true })}
               data-testid="password-login-input"
-              required
             />
+            {errors.password && <p>ERRRO</p>}
           </div>
           <Button
             className="border-[#8c5cff] border-1 cursor-pointer"
