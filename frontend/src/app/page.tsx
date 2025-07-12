@@ -13,6 +13,11 @@ import Link from "next/link";
 
 // TODO dodac validacje na polach, sprawdzania emaila  czy jest taki w bazie danmych na requescie
 
+type LoginData = {
+  email: string;
+  password: string;
+};
+
 export default function Home() {
   const t = useTranslations();
 
@@ -26,8 +31,10 @@ export default function Home() {
   const watchPassword = watch("password");
   const watchEmail = watch("email");
 
-  const submitFunction = (data) => {
+  const submitFunction = (data: LoginData) => {
     console.log(data);
+    console.log(watchEmail);
+    console.log(watchPassword);
   };
 
   return (

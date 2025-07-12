@@ -10,6 +10,13 @@ import { cn } from "@/lib/utils";
 
 import Link from "next/link";
 
+
+type SignUpData = {
+  email: string;
+  name: string;
+  password: string;
+};
+
 // TODO dodac validacje na polach, sprawdzania emaila  czy jest taki w bazie danmych na requescie
 
 export default function Home() {
@@ -22,11 +29,12 @@ export default function Home() {
     watch,
   } = useForm({ resolver: zodResolver(signInSchema) });
 
-  const watchPassword = watch("password");
-  const watchEmail = watch("email");
-
-  const submitFunction = (data) => {
+  const submitFunction = (data: SignUpData) => {
+    const watchPassword = watch("password");
+    const watchEmail = watch("email");
     console.log(data);
+    console.log(watchPassword);
+    console.log(watchEmail);
   };
 
   return (

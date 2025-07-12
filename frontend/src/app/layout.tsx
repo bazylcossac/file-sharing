@@ -7,6 +7,7 @@ import AppInit from "@/components/App/AppInit";
 
 const PlusJakarataSans = Plus_Jakarta_Sans({
   variable: "--font-jakarata-sans",
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -22,13 +23,11 @@ export default async function RootLayout({
 
   return (
     <html lang={locale}>
-      <AppInit>
-        <body
-          className={`${PlusJakarataSans.variable} antialiased bg-[#1a1b1e] text-[#f5f5f5]`}
-        >
-          {children}
-        </body>
-      </AppInit>
+      <body
+        className={`${PlusJakarataSans.variable} antialiased bg-[#1a1b1e] text-[#f5f5f5]`}
+      >
+        <AppInit>{children}</AppInit>
+      </body>
     </html>
   );
 }
