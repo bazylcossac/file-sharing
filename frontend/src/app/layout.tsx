@@ -3,7 +3,7 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import "./../styles/index.css";
 import { getLocale } from "next-intl/server";
 
-import AppInit from "@/components/AppInit";
+import AppInit from "@/components/App/AppInit";
 
 const PlusJakarataSans = Plus_Jakarta_Sans({
   variable: "--font-jakarata-sans",

@@ -1,9 +1,13 @@
 {
   "Login": "Zaloguj się",
+  "SignUp": "Zarejestruj się",
   "Password": "Hasło",
   "YourPassword": "Twoje hasło",
   "Email": "Email",
+  "Name": "Nazwa",
   "OR": "albo",
+  "DontHaveAccount": "Nie masz jescze konta?",
+  "HaveAnAccount": "Masz już konto?",
   "Errors": {
     "Email": {
       "InvalidEmail": "Nieprawidłowy email",
@@ -12,6 +16,10 @@
     "Password": {
       "InvalidPassword": "Nieprawidłowe hasło",
       "TooShort": "Hasło jest za krótkie"
+    },
+    "Name": {
+      "InvalidName": "Nieprawidłowa nazwa",
+      "TooShort": "Nazwa jest za krótka"
     }
   }
 }

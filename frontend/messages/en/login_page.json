@@ -1,9 +1,13 @@
 {
   "Login": "Log in",
+  "SignUp": "Sign up",
   "Password": "Password",
   "YourPassword": "Your password",
   "Email": "Email",
+  "Name": "Name",
   "OR": "or",
+  "DontHaveAccount": "Dont have an account?",
+  "HaveAnAccount": "Have an account?",
   "Errors": {
     "Email": {
       "InvalidEmail": "Invalid email",
@@ -12,6 +16,10 @@
     "Password": {
       "InvalidPassword": "Invalid password",
       "TooShort": "Password is too short"
+    },
+    "Name": {
+      "InvalidName": "Invalid name",
+      "TooShort": "Name is too short"
     }
   }
 }
