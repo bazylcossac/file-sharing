@@ -26,7 +26,7 @@ export default async function RootLayout({
       <body
         className={`${PlusJakarataSans.variable} antialiased bg-[#1a1b1e] text-[#f5f5f5]`}
       >
-        <AppInit>{children}</AppInit>
+        <AppInit locale={locale}>{children}</AppInit>
       </body>
     </html>
   );
