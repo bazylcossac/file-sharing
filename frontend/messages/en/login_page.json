@@ -1,5 +1,8 @@
 {
   "Login": "Log in",
+  "Password": "Password",
+  "YourPassword": "Your password",
+  "Email": "Email",
   "Errors": {
     "Email": {
       "InvalidEmail": "Invalid email",

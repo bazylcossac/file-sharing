@@ -1,5 +1,8 @@
 {
   "Login": "Zaloguj się",
+  "Password": "Hasło",
+  "YourPassword": "Twoje hasło",
+  "Email": "Email",
   "Errors": {
     "Email": {
       "InvalidEmail": "Nieprawidłowy email",

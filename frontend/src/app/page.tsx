@@ -43,7 +43,7 @@ export default function Home() {
         >
           <div>
             <label className="text-xs" htmlFor="email-input">
-              E-mail
+              {t("login_page.Email")}
             </label>
             <Input
               className={cn(
@@ -58,7 +58,11 @@ export default function Home() {
               {...register("email", { required: true })}
               data-testid="email-login-input"
             />
-            {errors.email && <p>Invalid email</p>}
+            {errors.email && (
+              <p className="text-xs mt-1 text-red-300">
+                {t("login_page.Errors.Email.InvalidEmail")}
+              </p>
+            )}
           </div>
           <div>
             <label
@@ -67,7 +71,7 @@ export default function Home() {
               })}
               htmlFor="password-input"
             >
-              Password
+              {t("login_page.Password")}
             </label>
             <Input
               className={cn(
@@ -76,7 +80,7 @@ export default function Home() {
                   "border-1 border-red-500": errors.password,
                 }
               )}
-              placeholder="Your password"
+              placeholder={t("login_page.YourPassword")}
               type="password"
               id="password-input"
               {...register("password", { required: true })}
