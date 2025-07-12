@@ -3,6 +3,7 @@
   "Password": "Hasło",
   "YourPassword": "Twoje hasło",
   "Email": "Email",
+  "OR": "albo",
   "Errors": {
     "Email": {
       "InvalidEmail": "Nieprawidłowy email",
