@@ -1,3 +1,13 @@
 {
-  "Login": "Zaloguj się"
+  "Login": "Zaloguj się",
+  "Errors": {
+    "Email": {
+      "InvalidEmail": "Nieprawidłowy email",
+      "EmailExists": "Email jest zajęty, {link1]"
+    },
+    "Password": {
+      "InvalidPassword": "Nieprawidłowe hasło",
+      "TooShort": "Hasło jest za krótkie"
+    }
+  }
 }

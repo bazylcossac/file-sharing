@@ -1,3 +1,13 @@
 {
-  "Login": "Log in"
+  "Login": "Log in",
+  "Errors": {
+    "Email": {
+      "InvalidEmail": "Invalid email",
+      "EmailExists": "Email already exists, please {link1]"
+    },
+    "Password": {
+      "InvalidPassword": "Invalid password",
+      "TooShort": "Password is too short"
+    }
+  }
 }

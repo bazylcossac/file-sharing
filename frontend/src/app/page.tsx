@@ -12,14 +12,21 @@ import { cn } from "@/lib/utils";
 
 export default function Home() {
   const t = useTranslations();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
     watch,
   } = useForm({ resolver: zodResolver(loginSchema) });
-  // const emailInput = watch("email");
-  // console.log(emailInput);
+
+  const watchPassword = watch("password");
+  const watchEmail = watch("email");
+
+  const submitFunction = (data) => {
+    console.log(data);
+  };
+
   return (
     <div className="w-full h-screen flex items-center justify-center">
       <div
@@ -30,7 +37,10 @@ export default function Home() {
           <p className="font-bold text-xl">File Sharing</p>
           <p>{t("login_page.Login")}</p>
         </div>
-        <form className="flex items-center flex-col h-full justify-center gap-8">
+        <form
+          className="flex items-center flex-col h-full justify-center gap-8"
+          onSubmit={handleSubmit(submitFunction)}
+        >
           <div>
             <label className="text-xs" htmlFor="email-input">
               E-mail
@@ -48,21 +58,35 @@ export default function Home() {
               {...register("email", { required: true })}
               data-testid="email-login-input"
             />
-            {errors.email && <p>ERRRO</p>}
+            {errors.email && <p>Invalid email</p>}
           </div>
           <div>
-            <label className="text-xs" htmlFor="password-input">
+            <label
+              className={cn("text-xs", {
+                "text-red-500": errors.password,
+              })}
+              htmlFor="password-input"
+            >
               Password
             </label>
             <Input
-              className="w-[400px]"
+              className={cn(
+                "w-[400px] focus:border-[#8c5cff] focus:outline-[#8c5cff] focus:ring-0 focus-visible:ring-0",
+                {
+                  "border-1 border-red-500": errors.password,
+                }
+              )}
               placeholder="Your password"
               type="password"
               id="password-input"
               {...register("password", { required: true })}
               data-testid="password-login-input"
             />
-            {errors.password && <p>ERRRO</p>}
+            {errors.password && (
+              <p className="text-xs mt-1 text-red-300">
+                {t(errors.password.message!)}
+              </p>
+            )}
           </div>
           <Button
             className="border-[#8c5cff] border-1 cursor-pointer"
