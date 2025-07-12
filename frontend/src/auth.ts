@@ -1,11 +1,14 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import { loginSchema } from "./lib/schemas/shemas";
 
-import { getUserByEmail } from "./utils/DataBase/User/user";
+import { getUserByEmail } from "./utils/dataBase/User/user";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
+  pages: {
+    signIn: "/",
+  },
   providers: [
     Credentials({
       credentials: {
@@ -15,11 +18,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       authorize: async (credentials) => {
         // PRZY LGOOWANIU
 
-        const data = loginSchema.safeParse(credentials);
+        const data = await loginSchema.parseAsync(credentials);
         // TODO jakas zwrotka
-        if (!data.success) return null;
 
-        const { email, password } = data.data;
+        const { email, password } = data;
 
         const user = await getUserByEmail(email);
 
@@ -28,6 +30,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         const hash = await bcrypt.compare(password, user.hashPassword);
 
         if (!hash) return null;
+
+        console.log("ZALOGOWANOOOO");
 
         return { id: user.id, email: user.email, name: user.name };
       },
