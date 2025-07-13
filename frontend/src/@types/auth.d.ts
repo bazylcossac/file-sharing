@@ -7,14 +7,14 @@ declare module "@auth/core" {
       id: string;
       name: string;
       email: string;
-      image: string;
+      imageUrl: string;
     } & DefaultSession["user"];
   }
   interface User extends DefaultUser {
     id: string;
     name: string;
     email: string;
-    image: string;
+    imageUrl: string;
   }
 }
 
@@ -23,6 +23,6 @@ declare module "@auth/core/jwt" {
     id: string;
     name: string;
     email: string;
-    image: string;
+    imageUrl: string;
   }
 }

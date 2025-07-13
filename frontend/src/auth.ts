@@ -34,7 +34,12 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
         if (!hash) return null;
 
-        return { id: user.id, email: user.email, name: user.name };
+        return {
+          id: user.id,
+          email: user.email,
+          name: user.name,
+          imageUrl: user.imageUrl,
+        };
       },
     }),
   ],
@@ -50,6 +55,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         session.userId = token.id;
         session.user.email = token.email;
         session.user.id = token.id;
+        session.user.image = token.imageUrl;
         session.user.name = token.name;
       }
       return session;
