@@ -11,6 +11,7 @@ import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import Link from "next/link";
 import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 // TODO dodac validacje na polach, sprawdzania emaila  czy jest taki w bazie danmych na requescie
 
@@ -21,15 +22,16 @@ type LoginData = {
 
 export default function Home() {
   const t = useTranslations();
-
+  const router = useRouter();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({ resolver: zodResolver(loginSchema) });
 
-  const submitFunction = (data: LoginData) => {
-    signIn("credentials", data);
+  const submitFunction = async (data: LoginData) => {
+    await signIn("credentials", data);
+    router.push("/dashborad");
   };
 
   return (

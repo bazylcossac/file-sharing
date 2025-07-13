@@ -10,7 +10,6 @@ import { cn } from "@/lib/utils";
 
 import Link from "next/link";
 
-
 type SignUpData = {
   email: string;
   name: string;

@@ -1,8 +1,16 @@
+import { auth } from "@/auth";
 import Header from "@/components/Header";
 import Navbar from "@/components/Navbar";
+import { redirect } from "next/navigation";
 import React from "react";
 
-function MainLayout({ children }: { children: React.ReactNode }) {
+async function MainLayout({ children }: { children: React.ReactNode }) {
+  // const session = await auth();
+
+  // if (!session?.user?.id) {
+  //   redirect("/");
+  // }
+
   return (
     <div className="w-full h-full overflow-y-hidden">
       <div className="w-full h-14">

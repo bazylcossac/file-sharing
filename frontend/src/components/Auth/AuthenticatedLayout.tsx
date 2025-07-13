@@ -16,6 +16,9 @@ export default function AuthenticatedLayout({
 
   useEffect(() => {
     if (session.status === "unauthenticated" || session.status === "loading") {
+      router.replace("/");
+    } else {
+      router.replace("/dashboard");
     }
   }, [session.status, router]);
 

@@ -43,6 +43,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
     }),
   ],
+
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
@@ -60,6 +61,25 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       }
       return session;
     },
+    // authorized: async ({ auth, request }) => {
+    //   const isLoggedIn = !!auth?.user;
+    //   const isTryingToAccessApp = request.url !== "/";
+    //   const isTryinToAccessLoginPage = request.url === "/";
+
+    //   // User is logged in and trying to access a protected route
+    //   if (isLoggedIn && isTryingToAccessApp) {
+    //     return true;
+    //   }
+    //   // User is not logged in and trying to access a protected route
+    //   if (!isLoggedIn && isTryingToAccessApp) {
+    //     return Response.redirect(new URL("/", request.nextUrl));
+    //   }
+    //   if (isLoggedIn && isTryinToAccessLoginPage) {
+    //     return false;
+    //   }
+
+    //   return false;
+    // },
   },
 
   secret: process.env.AUTH_SECRET,
