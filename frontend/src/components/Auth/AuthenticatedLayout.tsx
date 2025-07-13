@@ -10,11 +10,12 @@ export default function AuthenticatedLayout({
   children: React.ReactNode;
 }) {
   const session = useSession();
+  console.log(session.data?.user);
+
   const router = useRouter();
 
   useEffect(() => {
     if (session.status === "unauthenticated" || session.status === "loading") {
-      router.replace("/");
     }
   }, [session.status, router]);
 

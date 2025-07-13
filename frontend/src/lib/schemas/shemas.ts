@@ -8,7 +8,7 @@ export const loginSchema = z.object({
     .min(10, { message: "login_page.Errors.Password.TooShort" }),
 });
 
-export const signInSchema = z.strictObject({
+export const signInSchema = z.object({
   email: z.string().email(),
   name: z.string().min(5, { message: "login_page.Errors.Name.TooShort" }),
   password: z
