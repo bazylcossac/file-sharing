@@ -1,8 +1,8 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { Suspense, useMemo } from "react";
-import HeaderClient from "./HeaderClient";
+import { useMemo } from "react";
+import HeaderUser from "./HeaderUser";
 import { useTranslations } from "next-intl";
 import { useSession } from "next-auth/react";
 
@@ -13,13 +13,11 @@ function Header() {
   const userData = useMemo(() => {
     return session.data?.user;
   }, [session]);
-  
+
   return (
     <>
       <header className="h-full flex items-center justify-between mx-4">
-        <Suspense fallback={<div>Loading...</div>}>
-          <HeaderClient />
-        </Suspense>
+        <HeaderUser />
         <div className="flex flex-row items-center gap-4">
           {/* <Link
             href="/dashboard/tokens"

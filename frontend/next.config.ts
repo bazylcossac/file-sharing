@@ -2,6 +2,9 @@ import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
 
 const nextConfig: NextConfig = {
+  experimental: {
+    reactCompiler: true,
+  },
   // webpack(config) {
   //   // Wyłącz cache – build będzie wolniejszy, ale stabilny
   //   config.cache = false;
