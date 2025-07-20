@@ -2,11 +2,12 @@ import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import { loginSchema } from "./lib/schemas/shemas";
-
+import { PrismaAdapter } from "@auth/prisma-adapter";
+import prisma from "./utils/dataBase/prisma";
 import { getUserByEmail } from "./utils/dataBase/User/user";
-import { log } from "console";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
+  adapter: PrismaAdapter(prisma),
   pages: {
     signIn: "/",
   },
@@ -63,6 +64,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     },
     // authorized: async ({ auth, request }) => {
     //   const isLoggedIn = !!auth?.user;
+
     //   const isTryingToAccessApp = request.url !== "/";
     //   const isTryinToAccessLoginPage = request.url === "/";
 

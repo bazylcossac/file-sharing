@@ -13,7 +13,7 @@ import Link from "next/link";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
-// TODO dodac validacje na polach, sprawdzania emaila  czy jest taki w bazie danmych na requescie
+// TODO naprwaic: redirect po loginie, protected routes bez loginu
 
 type LoginData = {
   email: string;
@@ -31,6 +31,7 @@ export default function Home() {
 
   const submitFunction = async (data: LoginData) => {
     await signIn("credentials", data);
+    // jak bedzie niepoprawne logowanie to itak przeniesie
     router.push("/dashborad");
   };
 
@@ -125,7 +126,7 @@ export default function Home() {
           </div>
         </div>
         <p className="text-right mt-8 text-xs mr-2 underline">
-          <Link href="/signup">{t("login_page.DontHaveAccount")}</Link>
+          <Link href="/signup">{t("login_page.DontHaveAccount")}</Link>   
         </p>
       </div>
     </div>
