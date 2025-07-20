@@ -2,8 +2,14 @@
 import Link from "next/link";
 // import React, { useEffect, useState } from "react";
 import React from "react";
-
-// import SearchInput from "./SearchInput";
+import { FaHome, FaClock } from "react-icons/fa";
+import { MdStorage } from "react-icons/md";
+import {
+  RiFolderSharedFill,
+  RiSpam2Fill,
+  RiDeleteBin2Fill,
+} from "react-icons/ri";
+import { FaStar } from "react-icons/fa6";
 import * as motion from "motion/react-client";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
@@ -48,22 +54,24 @@ function Navbar() {
           {/* <SearchInput shortCut={shortCut} /> */}
 
           <div className="mb-4">
-            <ul className="flex flex-col [&>*]:text-sm [&>*]:py-1.75 [&>*]:hover:text-white [&>*]:hover:bg-accent [&>*]:rounded-md [&>*]:px-4 [&>*]:transition [&>*]:cursor-pointer">
+            <ul className="flex flex-col [&>*]:text-sm [&>*]:py-1.75 [&>*]:hover:text-white [&>*]:hover:bg-accent [&>*]:rounded-md [&>*]:px-4 [&>*]:transition [&>*]:cursor-pointer gap-1">
               <Link
                 href="/dashboard"
-                className={cn("text-white/70", {
+                className={cn("text-white/70 flex items-center gap-1", {
                   "bg-primary text-white": pathName === "/dashboard",
                 })}
               >
+                <FaHome />
                 {t("dashboard_page.navbar.HomePage")}
               </Link>
 
               <Link
                 href="/disc"
-                className={cn("text-white/70 ", {
+                className={cn("text-white/70 flex items-center gap-1 ", {
                   "bg-primary text-white": pathName === "/disc",
                 })}
               >
+                <MdStorage />
                 {t("dashboard_page.navbar.MyStorage")}
               </Link>
             </ul>
@@ -72,51 +80,56 @@ function Navbar() {
           {/* <UserNavbar /> */}
 
           <div className="mt-4">
-            <ul className="flex flex-col [&>*]:m-0.25 [&>*]:text-white/70 [&>*]:text-sm [&>*]:py-1.75 [&>*]:hover:text-white [&>*]:hover:bg-accent [&>*]:rounded-md [&>*]:px-4 [&>*]:transition [&>*]:cursor-pointer">
+            <ul className="flex flex-col [&>*]:m-0.25 [&>*]:text-white/70 [&>*]:text-sm [&>*]:py-1.75 [&>*]:hover:text-white [&>*]:hover:bg-accent [&>*]:rounded-md [&>*]:px-4 [&>*]:transition [&>*]:cursor-pointer gap-1">
               <Link
                 href="/shared"
-                className={cn("text-white/70 ", {
+                className={cn("text-white/70 flex items-center gap-1 ", {
                   "bg-primary text-white": pathName === "/shared",
                 })}
               >
+                <RiFolderSharedFill />
                 {t("dashboard_page.navbar.SharedWithMe")}
               </Link>
               <Link
                 href="/latest"
-                className={cn("text-white/70 ", {
+                className={cn("text-white/70 flex items-center gap-1 ", {
                   "bg-primary text-white": pathName === "/latest",
                 })}
               >
+                <FaClock />
                 {t("dashboard_page.navbar.Latest")}
               </Link>
               <Link
                 href="/starred"
-                className={cn("text-white/70 ", {
+                className={cn("text-white/70 flex items-center gap-1 ", {
                   "bg-primary text-white": pathName === "/starred",
                 })}
               >
+                <FaStar />
                 {t("dashboard_page.navbar.Starred")}
               </Link>
             </ul>
           </div>
 
           <div className="mt-4">
-            <ul className="flex flex-col [&>*]:text-sm [&>*]:py-1.75 [&>*]:hover:text-white [&>*]:hover:bg-accent [&>*]:rounded-md [&>*]:px-4 [&>*]:transition [&>*]:cursor-pointer">
+            <ul className="flex flex-col [&>*]:text-sm [&>*]:py-1.75 [&>*]:hover:text-white [&>*]:hover:bg-accent [&>*]:rounded-md [&>*]:px-4 [&>*]:transition [&>*]:cursor-pointer gap-1">
               <Link
                 href="/spam"
-                className={cn("text-white/70", {
+                className={cn("text-white/70 flex items-center gap-1", {
                   "bg-primary text-white ": pathName === "/spam",
                 })}
               >
+                <RiSpam2Fill />
                 {t("dashboard_page.navbar.Spam")}
               </Link>
 
               <Link
                 href="/bin"
-                className={cn("text-white/70 ", {
+                className={cn("text-white/70 flex items-center gap-1", {
                   "bg-primary text-white": pathName === "/bin",
                 })}
               >
+                <RiDeleteBin2Fill />
                 {t("dashboard_page.navbar.Bin")}
               </Link>
             </ul>
