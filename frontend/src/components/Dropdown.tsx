@@ -5,6 +5,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { cn } from "@/lib/utils";
 import { Dispatch, ReactElement, ReactNode, SetStateAction } from "react";
 type DropdownTypes = {
   visible?: boolean;
@@ -12,6 +13,7 @@ type DropdownTypes = {
   children: ReactNode;
   trigger?: string | ReactElement;
   separator?: boolean;
+  childrenStyles?: string;
   label?: string | ReactElement;
   className?: string;
 };
@@ -23,6 +25,7 @@ export default function Dropdown({
   visible,
   setVisible,
   separator,
+  childrenStyles,
   ...props
 }: DropdownTypes) {
   return (
@@ -31,7 +34,9 @@ export default function Dropdown({
       <DropdownMenuContent {...props}>
         {!!label && <DropdownMenuLabel>{label}</DropdownMenuLabel>}
         {separator && <DropdownMenuSeparator />}
-        {children}
+        <div className={cn("[&>*]:cursor-pointer", childrenStyles)}>
+          {children}
+        </div>
       </DropdownMenuContent>
     </DropdownMenu>
   );

@@ -15,9 +15,9 @@ function HeaderUser() {
     <div className="flex flex-row items-center">
       <div className="flex items-center gap-2 hover:bg-neutral-700 transition rounded-md px-2 py-1 cursor-pointer">
         <UserDropdown
-          className="ml-2"
+          className="ml-2 bg-[#100a0e] border-none text-white"
           trigger={
-            <div className="flex gap-2 ring-0 focus:ring-0">
+            <div className="flex gap-2 ring-0 focus:ring-0 outline-none">
               {userData?.image ? (
                 <Image
                   src={userData?.image}
@@ -28,7 +28,7 @@ function HeaderUser() {
                   className="rounded-full"
                 />
               ) : (
-                <div className="rounded-full bg-[#8c5cff] font-semibold text-white text-xs size-6 flex items-center justify-center">
+                <div className="rounded-full bg-primary font-semibold text-white text-xs size-6 flex items-center justify-center">
                   <p>{userData?.name![0]}</p>
                 </div>
               )}

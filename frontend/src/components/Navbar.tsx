@@ -48,11 +48,11 @@ function Navbar() {
           {/* <SearchInput shortCut={shortCut} /> */}
 
           <div className="mb-4">
-            <ul className="flex flex-col [&>*]:text-sm [&>*]:py-1.75 [&>*]:hover:text-white [&>*]:hover:bg-neutral-700 [&>*]:rounded-md [&>*]:px-4 [&>*]:transition [&>*]:cursor-pointer">
+            <ul className="flex flex-col [&>*]:text-sm [&>*]:py-1.75 [&>*]:hover:text-white [&>*]:hover:bg-accent [&>*]:rounded-md [&>*]:px-4 [&>*]:transition [&>*]:cursor-pointer">
               <Link
                 href="/dashboard"
                 className={cn("text-white/70", {
-                  "bg-[#8c5cff] text-white": pathName === "/dashboard",
+                  "bg-primary text-white": pathName === "/dashboard",
                 })}
               >
                 {t("dashboard_page.navbar.HomePage")}
@@ -61,7 +61,7 @@ function Navbar() {
               <Link
                 href="/disc"
                 className={cn("text-white/70 ", {
-                  "bg-[#8c5cff] text-white": pathName === "/disc",
+                  "bg-primary text-white": pathName === "/disc",
                 })}
               >
                 {t("dashboard_page.navbar.MyStorage")}
@@ -72,11 +72,11 @@ function Navbar() {
           {/* <UserNavbar /> */}
 
           <div className="mt-4">
-            <ul className="flex flex-col [&>*]:m-0.25 [&>*]:text-white/70 [&>*]:text-sm [&>*]:py-1.75 [&>*]:hover:text-white [&>*]:hover:bg-neutral-700 [&>*]:rounded-md [&>*]:px-4 [&>*]:transition [&>*]:cursor-pointer">
+            <ul className="flex flex-col [&>*]:m-0.25 [&>*]:text-white/70 [&>*]:text-sm [&>*]:py-1.75 [&>*]:hover:text-white [&>*]:hover:bg-accent [&>*]:rounded-md [&>*]:px-4 [&>*]:transition [&>*]:cursor-pointer">
               <Link
                 href="/shared"
                 className={cn("text-white/70 ", {
-                  "bg-[#8c5cff] text-white": pathName === "/shared",
+                  "bg-primary text-white": pathName === "/shared",
                 })}
               >
                 {t("dashboard_page.navbar.SharedWithMe")}
@@ -84,7 +84,7 @@ function Navbar() {
               <Link
                 href="/latest"
                 className={cn("text-white/70 ", {
-                  "bg-[#8c5cff] text-white": pathName === "/latest",
+                  "bg-primary text-white": pathName === "/latest",
                 })}
               >
                 {t("dashboard_page.navbar.Latest")}
@@ -92,7 +92,7 @@ function Navbar() {
               <Link
                 href="/starred"
                 className={cn("text-white/70 ", {
-                  "bg-[#8c5cff] text-white": pathName === "/starred",
+                  "bg-primary text-white": pathName === "/starred",
                 })}
               >
                 {t("dashboard_page.navbar.Starred")}
@@ -101,11 +101,11 @@ function Navbar() {
           </div>
 
           <div className="mt-4">
-            <ul className="flex flex-col [&>*]:text-sm [&>*]:py-1.75 [&>*]:hover:text-white [&>*]:hover:bg-neutral-700 [&>*]:rounded-md [&>*]:px-4 [&>*]:transition [&>*]:cursor-pointer">
+            <ul className="flex flex-col [&>*]:text-sm [&>*]:py-1.75 [&>*]:hover:text-white [&>*]:hover:bg-accent [&>*]:rounded-md [&>*]:px-4 [&>*]:transition [&>*]:cursor-pointer">
               <Link
                 href="/spam"
                 className={cn("text-white/70", {
-                  "bg-[#8c5cff] text-white ": pathName === "/spam",
+                  "bg-primary text-white ": pathName === "/spam",
                 })}
               >
                 {t("dashboard_page.navbar.Spam")}
@@ -114,7 +114,7 @@ function Navbar() {
               <Link
                 href="/bin"
                 className={cn("text-white/70 ", {
-                  "bg-[#8c5cff] text-white": pathName === "/bin",
+                  "bg-primary text-white": pathName === "/bin",
                 })}
               >
                 {t("dashboard_page.navbar.Bin")}
@@ -125,7 +125,7 @@ function Navbar() {
             <p className="text-xs mb-2">
               {t("dashboard_page.navbar.UsedStorage")}
             </p>
-            <Progress value={70} className="bg-neutral-900" />
+            <Progress value={70} className="bg-primary" />
             <p className="text-xs font-bold mt-2">8.23GB / 10.00GB</p>
             <Button
               variant="secondary"

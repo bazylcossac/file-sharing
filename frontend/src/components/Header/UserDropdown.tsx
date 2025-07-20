@@ -25,7 +25,9 @@ export default function UserDropdown({
     >
       <DropdownMenuItem>Profile</DropdownMenuItem>
       <DropdownMenuItem>Settings</DropdownMenuItem>
-      <DropdownMenuItem>Logout</DropdownMenuItem>
+      <DropdownMenuItem variant="destructive" className="hover:bg-red-500">
+        Logout
+      </DropdownMenuItem>
     </Dropdown>
   );
 }
