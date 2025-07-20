@@ -2,12 +2,12 @@ import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import { loginSchema } from "./lib/schemas/shemas";
-import { PrismaAdapter } from "@auth/prisma-adapter";
-import prisma from "./utils/dataBase/prisma";
+// import { PrismaAdapter } from "@auth/prisma-adapter";
+// import prisma from "./utils/dataBase/prisma";
 import { getUserByEmail } from "./utils/dataBase/User/user";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
-  adapter: PrismaAdapter(prisma),
+  // adapter: PrismaAdapter(prisma),
   pages: {
     signIn: "/",
   },
@@ -18,7 +18,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         password: { type: "password" },
       },
       authorize: async (credentials) => {
-        // PRZY LGOOWANIU
+      // PRZY LGOOWANIU
         // test@test.com
         // tajnehaslo
 
@@ -34,6 +34,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         const hash = await bcrypt.compare(password, user.hashPassword);
 
         if (!hash) return null;
+
+        console.log("ZALOGOWANO");
 
         return {
           id: user.id,

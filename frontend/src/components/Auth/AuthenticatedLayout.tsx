@@ -10,7 +10,7 @@ export default function AuthenticatedLayout({
   children: React.ReactNode;
 }) {
   const session = useSession();
-  console.log(session.data?.user);
+  
 
   const router = useRouter();
 
