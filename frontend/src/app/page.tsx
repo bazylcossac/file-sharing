@@ -31,7 +31,7 @@ export default function Home() {
 
   const submitFunction = async (data: LoginData) => {
     await signIn("credentials", data);
-    // jak bedzie niepoprawne logowanie to itak przeniesie
+    // jak bedzie niepoprawne logowanie to i tak przeniesie
     router.push("/dashborad");
   };
 
@@ -126,7 +126,7 @@ export default function Home() {
           </div>
         </div>
         <p className="text-right mt-8 text-xs mr-2 underline">
-          <Link href="/signup">{t("login_page.DontHaveAccount")}</Link>   
+          <Link href="/signup">{t("login_page.DontHaveAccount")}</Link>
         </p>
       </div>
     </div>

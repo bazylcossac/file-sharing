@@ -9,6 +9,7 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
 import { Progress } from "./ui/progress";
+import { Button } from "./ui/button";
 
 function Navbar() {
   //   const [shortCut, setShortcut] = useState<"CTRL" | "⌘" | "">("");
@@ -126,6 +127,13 @@ function Navbar() {
             </p>
             <Progress value={70} className="bg-neutral-900" />
             <p className="text-xs font-bold mt-2">8.23GB / 10.00GB</p>
+            <Button
+              variant="secondary"
+              size="sm"
+              className="text-xs mt-4 cursor-pointer"
+            >
+              {t("header.buy_space")}
+            </Button>
           </div>
         </div>
       </motion.div>

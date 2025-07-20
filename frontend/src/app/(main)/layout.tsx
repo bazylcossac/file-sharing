@@ -1,7 +1,6 @@
-import { auth } from "@/auth";
 import Header from "@/components/Header";
 import Navbar from "@/components/Navbar";
-import { redirect } from "next/navigation";
+
 import React from "react";
 
 async function MainLayout({ children }: { children: React.ReactNode }) {
