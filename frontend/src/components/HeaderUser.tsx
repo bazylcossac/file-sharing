@@ -1,11 +1,10 @@
 "use client";
 import { useSession } from "next-auth/react";
-import React, { useMemo, useState } from "react";
+import React, { useMemo } from "react";
 import Image from "next/image";
 import UserDropdown from "./Header/UserDropdown";
 
 function HeaderUser() {
-  const [visible, setVisible] = useState(false);
   const session = useSession();
   const userData = useMemo(() => {
     return session.data?.user;
