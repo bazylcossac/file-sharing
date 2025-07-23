@@ -11,6 +11,8 @@ function HeaderUser() {
   }, [session]);
 
   /// testowa zmiana
+
+  /// testowa zmiana z maina
   return (
     <div className="flex flex-row items-center">
       <div className="flex items-center gap-2 hover:bg-neutral-700 transition rounded-md px-2 py-1 cursor-pointer">
