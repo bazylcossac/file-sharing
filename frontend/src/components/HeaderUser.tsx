@@ -20,7 +20,7 @@ function HeaderUser() {
           className="ml-2 bg-[#100a0e] border-none text-white"
           trigger={
             <div className="flex gap-2 ring-0 focus:ring-0 outline-none">
-              {/* {userData?.image ? (
+              {userData?.image ? (
                 <Image
                   src={userData?.image}
                   alt="user image"
@@ -33,7 +33,7 @@ function HeaderUser() {
                 <div className="rounded-full bg-primary font-semibold text-white text-xs size-6 flex items-center justify-center">
                   <p>{userData?.name![0]}</p>
                 </div>
-              )} */}
+              )}
               <p>{userData?.name}</p>
             </div>
           }
