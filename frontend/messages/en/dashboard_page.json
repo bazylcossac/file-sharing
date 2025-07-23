@@ -7,6 +7,7 @@
     "Starred": "Starred",
     "Spam": "Spam",
     "Bin": "Trash bin",
-    "UsedStorage": "Used storage"
+    "UsedStorage": "Used storage",
+    "need_more_space": "Need more space?"
   }
 }

@@ -2,7 +2,7 @@
 import { Dispatch, ReactElement, SetStateAction } from "react";
 import Dropdown from "../Dropdown";
 import { DropdownMenuItem } from "../ui/dropdown-menu";
-
+import { signOut } from "next-auth/react";
 type UserDropdownType = {
   trigger: ReactElement;
   setVisible?: Dispatch<SetStateAction<boolean>>;
@@ -25,7 +25,11 @@ export default function UserDropdown({
     >
       <DropdownMenuItem>Profile</DropdownMenuItem>
       <DropdownMenuItem>Settings</DropdownMenuItem>
-      <DropdownMenuItem variant="destructive" className="hover:bg-red-500">
+      <DropdownMenuItem
+        variant="destructive"
+        className="hover:bg-red-500"
+        onClick={() => signOut()}
+      >
         Logout
       </DropdownMenuItem>
     </Dropdown>

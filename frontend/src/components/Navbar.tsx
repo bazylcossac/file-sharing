@@ -140,13 +140,13 @@ function Navbar() {
             </p>
             <Progress value={70} className="bg-primary" />
             <p className="text-xs font-bold mt-2">8.23GB / 10.00GB</p>
-            <Button
-              variant="secondary"
-              size="sm"
-              className="text-xs mt-4 cursor-pointer"
+
+            <Link
+              href="/dashboard"
+              className="text-xs mt-4 text-primary underline cursor-pointer hover:text-accent"
             >
-              {t("header.buy_space")}
-            </Button>
+              {t("dashboard_page.navbar.need_more_space")}
+            </Link>
           </div>
         </div>
       </motion.div>

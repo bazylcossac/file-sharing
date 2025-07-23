@@ -7,6 +7,7 @@
     "Starred": "Oznaczone gwiazdką",
     "Spam": "Spam",
     "Bin": "Kosz",
-    "UsedStorage": "Zużyte miejsce"
+    "UsedStorage": "Zużyte miejsce",
+    "need_more_space": "Potrzebujesz więcej miejsca?"
   }
 }

@@ -19,15 +19,9 @@ function Header() {
       <header className="h-full flex items-center justify-between mx-4">
         <HeaderUser />
         <div className="flex flex-row items-center gap-4">
-          {/* <Link
-            href="/dashboard/tokens"
-            className="text-[11px] bg-white px-2 py-1 rounded-md text-black font-semibold hover:bg-white/70 transition hidden md:inline-block "
-          >
-            Buy More Space
-          </Link> */}
-          {/* <p className="font-bold mx-1 text-white/50">/</p> */}
-
-          {/* <IoSettingsOutline className="font-bold text-white/70 hover:text-white cursor-pointer hidden md:inline-block" /> */}
+          <h1 className="font-bold">
+            Drop<span className="text-primary">Thing</span>
+          </h1>
         </div>
       </header>
     </>
