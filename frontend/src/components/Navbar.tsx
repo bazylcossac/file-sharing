@@ -66,9 +66,9 @@ function Navbar() {
               </Link>
 
               <Link
-                href="/disc"
+                href="/storage"
                 className={cn("text-white/70 flex items-center gap-1 ", {
-                  "bg-primary text-white": pathName === "/disc",
+                  "bg-primary text-white": pathName === "/storage",
                 })}
               >
                 <MdStorage />

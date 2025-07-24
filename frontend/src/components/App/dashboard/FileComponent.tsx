@@ -1,13 +1,17 @@
+"use client";
 import { FileType } from "@/@types/file";
 import React, { useMemo } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const FileComponent = ({
+  id,
   fileName,
   elements,
   size,
   backgroundImage,
 }: FileType) => {
+  const router = useRouter();
   const imageUrl = useMemo(
     () =>
       backgroundImage ||
@@ -15,20 +19,26 @@ const FileComponent = ({
     [backgroundImage]
   );
 
+  const navigateToFile = () => router.push(`storage/folder/${id}`);
+
   return (
-    <div className="relative w-fit hover:scale-102 transition cursor-pointer">
+    <div
+      className="hover:brightness-80 transition cursor-pointer flex flex-col gap-1 w-auto"
+      onClick={navigateToFile}
+    >
       <Image
         src={imageUrl}
         width={200}
-        height={400}
+        height={100}
         alt="folder background image"
-        className="relative rounded-t-md"
+        className="rounded-t-md object-cover w-full h-full "
         quality={100}
+        priority
       />
-      <div className="absolute top-0  bg-black/50 w-full rounded-t-md">
-        <p className="text-xs font-semibold m-1">{fileName}</p>
+      <div className=" top-0  bg-black/50 w-full rounded-md">
+        <p className="text-xs font-semibold p-2">{fileName}</p>
       </div>
-      <div className="absolute left-0 w-full bg-primary rounded-b-md text-white h-18 flex flex-col">
+      <div className="w-full bg-primary rounded-md text-white h-18 flex flex-col">
         <div className="m-1">
           <p className="text-xs">Elements: {elements}</p>
           <p className="text-xs">{size} MB</p>
