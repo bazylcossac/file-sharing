@@ -63,7 +63,6 @@ function Navbar() {
               >
                 <FaHome />
                 {t("dashboard_page.navbar.HomePage")}
-                {t("dashboard_page.navbar.HomePage")}
               </Link>
 
               <Link

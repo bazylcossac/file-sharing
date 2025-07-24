@@ -24,12 +24,11 @@ export default function UserDropdown({
       className={className}
     >
       <DropdownMenuItem>Profile</DropdownMenuItem>
-      <DropdownMenuItem>Profile</DropdownMenuItem>
       <DropdownMenuItem>Settings</DropdownMenuItem>
       <DropdownMenuItem
         variant="destructive"
         className="hover:bg-red-500"
-        onClick={() =>signOut}
+        onClick={() => signOut}
       >
         Logout
       </DropdownMenuItem>
