@@ -5,6 +5,15 @@ const nextConfig: NextConfig = {
   experimental: {
     reactCompiler: true,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.dlcompare.com",
+        port: "",
+      },
+    ],
+  },
   // webpack(config) {
   //   // Wyłącz cache – build będzie wolniejszy, ale stabilny
   //   config.cache = false;
