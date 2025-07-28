@@ -14,4 +14,16 @@ model User {
   hashPassword String
   imageUrl     String
   createdAt    DateTime @default(now())
+  File         File[]
+}
+
+model File {
+  id           String   @id @default(uuid())
+  userId       String
+  sharedEmails String[]
+  size         Int
+  secure       Boolean
+  password     String
+  name         String
+  User         User?    @relation(fields: [userId], references: [id])
 }

@@ -39,12 +39,7 @@ const FileComponent = () => {
               </div>
               <div>
                 <p>{t("common.createFile.maxSize")}</p>
-                <Slider
-                  defaultValue={[33]}
-                  max={100}
-                  step={1}
-                  {...register("maxSize")}
-                />
+                <Input type="number" {...register("maxSize")} />
               </div>
             </DialogDescription>
           </DialogHeader>
