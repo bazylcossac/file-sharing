@@ -21,7 +21,7 @@ const data: FileType[] = [
       "https://cdn.dlcompare.com/game_tetiere/upload/gameimage/file/black-myth-wukong-file-84439423e.jpg.webp",
   },
   {
-    id: "123123",
+    id: "1231233211",
     fileName: "Test File",
     elements: 13,
     size: 31,
@@ -29,15 +29,15 @@ const data: FileType[] = [
       "https://cdn.dlcompare.com/game_tetiere/upload/gameimage/file/grand-theft-auto-v-enhanced-scre-5b30d0ae-file-5b30d0a1.jpg.webp",
   },
   {
-    id: "123123321",
+    id: "1231233232321",
     fileName: "Games Screens",
     elements: 42,
-    size: 352,
+    size: 3233,
     backgroundImage:
       "https://cdn.dlcompare.com/game_tetiere/upload/gameimage/file/black-myth-wukong-file-84439423e.jpg.webp",
   },
   {
-    id: "123123",
+    id: "123222123",
     fileName: "Test File",
     elements: 13,
     size: 31,
@@ -45,7 +45,7 @@ const data: FileType[] = [
       "https://cdn.dlcompare.com/game_tetiere/upload/gameimage/file/grand-theft-auto-v-enhanced-scre-5b30d0ae-file-5b30d0a1.jpg.webp",
   },
   {
-    id: "123123321",
+    id: "1231233221",
     fileName: "Games Screens",
     elements: 42,
     size: 352,

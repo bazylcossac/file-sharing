@@ -3,6 +3,7 @@ import { FileType } from "@/@types/file";
 import React, { useMemo } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 const FileComponent = ({
   id,
@@ -20,7 +21,7 @@ const FileComponent = ({
   );
 
   const navigateToFile = () => router.push(`storage/folder/${id}`);
-
+  const t = useTranslations();
   return (
     <div
       className="hover:brightness-80 transition cursor-pointer flex flex-col gap-1 w-auto"
@@ -40,7 +41,9 @@ const FileComponent = ({
       </div>
       <div className="w-full bg-primary rounded-md text-white h-18 flex flex-col">
         <div className="m-1">
-          <p className="text-xs">Elements: {elements}</p>
+          <p className="text-xs">
+            {t("common.file.elements")}: {elements}
+          </p>
           <p className="text-xs">{size} MB</p>
         </div>
         <div className="text-right mt-auto m-1">
