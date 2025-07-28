@@ -6,6 +6,9 @@
     "createNewSpace": "Stwórz nową przestrzeń",
     "spaceName": "Nazwa przestrzeni",
     "maxSize": "Maksymalna przestrzeń",
-    "passwordTooShort": "Hasło jest za krótkie"
+    "passwordTooShort": "Hasło jest za krótkie",
+    "secureSpace": "Zbezpiecz przestrzeń",
+    "optional": "opcjonalne",
+    "setPassword": "Podaj hasło"
   }
 }

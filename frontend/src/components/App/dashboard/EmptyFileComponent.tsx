@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { FaFolderPlus } from "react-icons/fa";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
@@ -12,10 +12,11 @@ import {
 } from "@/components/ui/dialog";
 import { useTranslations } from "next-intl";
 import { Input } from "@/components/ui/input";
-import { Slider } from "@/components/ui/slider";
 import { useForm } from "react-hook-form";
 import { fileCreateInit, fileCreateSchema } from "@/constants/File/FileCreate";
+import { Switch } from "@/components/ui/switch";
 const FileComponent = () => {
+  const [secureSwitch, setSecureSwitch] = useState(false);
   const t = useTranslations();
   const { register } = useForm({
     resolver: zodResolver(fileCreateSchema),
@@ -40,6 +41,21 @@ const FileComponent = () => {
               <div>
                 <p>{t("common.createFile.maxSize")}</p>
                 <Input type="number" {...register("maxSize")} />
+              </div>
+              <div>
+                <p>{t("common.createFile.secureSpace")}</p>
+                <p className="text-xs">*{t("common.createFile.optional")}</p>
+                <Switch
+                  {...register("secure")}
+                  checked={secureSwitch}
+                  onCheckedChange={setSecureSwitch}
+                />
+                {secureSwitch && (
+                  <div>
+                    <p>{t("common.createFile.setPassword")}</p>
+                    <Input type="password" />
+                  </div>
+                )}
               </div>
             </DialogDescription>
           </DialogHeader>

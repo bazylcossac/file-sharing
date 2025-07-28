@@ -6,6 +6,9 @@
     "createNewSpace": "Create New Space",
     "spaceName": "Space name",
     "maxSize": "Maximum size",
-    "passwordTooShort": "Password is too short"
+    "passwordTooShort": "Password is too short",
+    "secureSpace": "Secure your space",
+    "optional": "optional",
+    "setPassword": "Set password"
   }
 }
