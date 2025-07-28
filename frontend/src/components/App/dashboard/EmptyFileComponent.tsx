@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { FaFolderPlus } from "react-icons/fa";
+import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Dialog,
   DialogContent,
@@ -11,8 +12,15 @@ import {
 } from "@/components/ui/dialog";
 import { useTranslations } from "next-intl";
 import { Input } from "@/components/ui/input";
+import { Slider } from "@/components/ui/slider";
+import { useForm } from "react-hook-form";
+import { fileCreateInit, fileCreateSchema } from "@/constants/File/FileCreate";
 const FileComponent = () => {
   const t = useTranslations();
+  const { register } = useForm({
+    resolver: zodResolver(fileCreateSchema),
+    defaultValues: fileCreateInit,
+  });
   return (
     <div className="">
       <Dialog>
@@ -23,9 +31,21 @@ const FileComponent = () => {
         </DialogTrigger>
         <DialogContent className="bg-[#2c2632]">
           <DialogHeader>
-            <DialogTitle>{t("common.file.createNewSpace")}</DialogTitle>
+            <DialogTitle>{t("common.createFile.createNewSpace")}</DialogTitle>
             <DialogDescription>
-              <Input />
+              <div>
+                <p>{t("common.createFile.spaceName")}</p>
+                <Input {...register("name")} />
+              </div>
+              <div>
+                <p>{t("common.createFile.maxSize")}</p>
+                <Slider
+                  defaultValue={[33]}
+                  max={100}
+                  step={1}
+                  {...register("maxSize")}
+                />
+              </div>
             </DialogDescription>
           </DialogHeader>
         </DialogContent>

@@ -3,6 +3,9 @@
     "elements": "Elements"
   },
   "createFile": {
-    "createNewSpace": "Create New Space"
+    "createNewSpace": "Create New Space",
+    "spaceName": "Space name",
+    "maxSize": "Maximum size",
+    "passwordTooShort": "Password is too short"
   }
 }
