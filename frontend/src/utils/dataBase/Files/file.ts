@@ -3,6 +3,6 @@ import { toast } from "sonner"
 
 export const createFile = async(data: any[]) => {
     try{
-        await prisma.
+        await prisma.file
     }
 }

@@ -54,13 +54,13 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       }
     },
     async session({ session, token }) {
-      // if (token) {
-      //   session.userId = token.id;
-      //   session.user.email = token.email;
-      //   session.user.id = token.id;
-      //   session.user.image = token.imageUrl;
-      //   session.user.name = token.name;
-      // }
+      if (token) {
+        session.userId = token.id;
+        session.user.email = token.email;
+        session.user.id = token.id;
+        session.user.imageUrl = token.imageUrl;
+        session.user.name = token.name;
+      }
       return session;
     },
     // authorized: async ({ auth, request }) => {

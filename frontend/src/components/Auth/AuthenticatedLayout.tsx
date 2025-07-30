@@ -3,26 +3,32 @@ import React, { useEffect } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import MainLoader from "../App/MainLoader";
+import useUserStore from "@/utils/store/User/user.bear";
 
 export default function AuthenticatedLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const session = useSession();
-  
-
+  const { status, data } = useSession();
+  const setUserData = useUserStore((state) => state.setUserData);
   const router = useRouter();
 
   useEffect(() => {
-    if (session.status === "unauthenticated" || session.status === "loading") {
+    if (status === "unauthenticated" || status === "loading") {
       router.replace("/");
     } else {
       router.replace("/dashboard");
     }
-  }, [session.status, router]);
+  }, [status, router]);
 
-  if (session.status === "loading") {
+  useEffect(() => {
+    if (data?.user.) {
+      setUserData(data.user);
+    }
+  }, []);
+
+  if (status === "loading") {
     return <MainLoader />;
   }
 
