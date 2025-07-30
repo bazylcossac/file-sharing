@@ -1,13 +1,30 @@
-import NextAuth from "next-auth";
+import NextAuth, { DefaultSession } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import { loginSchema } from "./lib/schemas/shemas";
-// import { PrismaAdapter } from "@auth/prisma-adapter";
-// import prisma from "./utils/dataBase/prisma";
 import { getUserByEmail } from "./utils/dataBase/User/user";
 
+declare module "next-auth" {
+  interface Session extends DefaultSession {
+    user: {
+      id: string;
+      name: string;
+      email: string;
+      imageUrl: string;
+    };
+  }
+}
+
+declare module "@auth/core/jwt" {
+  interface JWT extends DefaultJWT {
+    id: string;
+    name: string;
+    email: string;
+    imageUrl: string;
+  }
+}
+
 export const { handlers, signIn, signOut, auth } = NextAuth({
-  // adapter: PrismaAdapter(prisma),
   pages: {
     signIn: "/",
   },
@@ -63,26 +80,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       }
       return session;
     },
-    // authorized: async ({ auth, request }) => {
-    //   const isLoggedIn = !!auth?.user;
-
-    //   const isTryingToAccessApp = request.url !== "/";
-    //   const isTryinToAccessLoginPage = request.url === "/";
-
-    //   // User is logged in and trying to access a protected route
-    //   if (isLoggedIn && isTryingToAccessApp) {
-    //     return true;
-    //   }
-    //   // User is not logged in and trying to access a protected route
-    //   if (!isLoggedIn && isTryingToAccessApp) {
-    //     return Response.redirect(new URL("/", request.nextUrl));
-    //   }
-    //   if (isLoggedIn && isTryinToAccessLoginPage) {
-    //     return false;
-    //   }
-
-    //   return false;
-    // },
   },
 
   secret: process.env.AUTH_SECRET,

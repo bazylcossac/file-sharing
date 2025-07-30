@@ -23,10 +23,10 @@ export default function AuthenticatedLayout({
   }, [status, router]);
 
   useEffect(() => {
-    if (data?.user.) {
+    if (data?.user) {
       setUserData(data.user);
     }
-  }, []);
+  }, [data, setUserData]);
 
   if (status === "loading") {
     return <MainLoader />;
