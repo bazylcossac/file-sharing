@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./../styles/index.css";
 import { getLocale } from "next-intl/server";
+import { Toaster } from "@/components/ui/sonner";
 
 import AppInit from "@/components/App/AppInit";
 
@@ -27,6 +28,7 @@ export default async function RootLayout({
         className={`${PlusJakarataSans.variable} antialiased bg-[#221d27] text-primary-foreground`}
       >
         <AppInit locale={locale}>{children}</AppInit>
+        <Toaster />
       </body>
     </html>
   );

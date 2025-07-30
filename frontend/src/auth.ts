@@ -18,7 +18,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         password: { type: "password" },
       },
       authorize: async (credentials) => {
-      // PRZY LGOOWANIU
+        // PRZY LGOOWANIU
         // test@test.com
         // tajnehaslo
 
@@ -52,16 +52,15 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       if (user) {
         token.id = user.id as string;
       }
-      return token;
     },
     async session({ session, token }) {
-      if (token) {
-        session.userId = token.id;
-        session.user.email = token.email;
-        session.user.id = token.id;
-        session.user.image = token.imageUrl;
-        session.user.name = token.name;
-      }
+      // if (token) {
+      //   session.userId = token.id;
+      //   session.user.email = token.email;
+      //   session.user.id = token.id;
+      //   session.user.image = token.imageUrl;
+      //   session.user.name = token.name;
+      // }
       return session;
     },
     // authorized: async ({ auth, request }) => {
