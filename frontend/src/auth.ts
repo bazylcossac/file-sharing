@@ -1,5 +1,6 @@
 import NextAuth, { DefaultSession } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
+import Google from "next-auth/providers/google";
 import bcrypt from "bcryptjs";
 import { loginSchema } from "./lib/schemas/shemas";
 import { getUserByEmail } from "./utils/dataBase/User/user";
@@ -62,6 +63,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         };
       },
     }),
+    Google({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_SECRET,
+    }),
   ],
 
   callbacks: {
@@ -69,6 +74,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       if (user) {
         token.id = user.id as string;
       }
+      return token;
     },
     async session({ session, token }) {
       if (token) {

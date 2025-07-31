@@ -12,13 +12,13 @@ const nextConfig: NextConfig = {
         hostname: "cdn.dlcompare.com",
         port: "",
       },
+      {
+        protocol: "https",
+        hostname: "lh3.googleusercontent.com",
+        port: "",
+      },
     ],
   },
-  // webpack(config) {
-  //   // Wyłącz cache – build będzie wolniejszy, ale stabilny
-  //   config.cache = false;
-  //   return config;
-  // },
 };
 
 const withNextIntl = createNextIntlPlugin();

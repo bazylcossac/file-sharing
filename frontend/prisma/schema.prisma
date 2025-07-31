@@ -8,20 +8,22 @@ datasource db {
 }
 
 model User {
-  id           String   @id @default(uuid())
-  name         String
-  email        String   @unique
-  hashPassword String
-  imageUrl     String
-  createdAt    DateTime @default(now())
-  File         File[]
+  id             String   @id @default(uuid())
+  name           String
+  email          String   @unique
+  hashPassword   String
+  imageUrl       String
+  createdAt      DateTime @default(now())
+  avaliableSpace Int      @default(10000000000) // 10 GB
+  usedSpace      Int      @default(0)
+  File           File[]
 }
 
 model File {
   id           String   @id @default(uuid())
   userId       String
   sharedEmails String[]
-  size         Int
+  size         Int      @default(0)
   secure       Boolean
   password     String
   name         String

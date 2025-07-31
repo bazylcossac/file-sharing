@@ -116,7 +116,10 @@ export default function Home() {
         <div>
           <div className="flex items-center justify-center">
             <div className="space-x-10 flex">
-              <button className="flex items-center justify-center bg-neutral-800 border-1 border-[#8c5cff] size-10 rounded-sm cursor-pointer hover:bg-neutral-700 transition">
+              <button
+                className="flex items-center justify-center bg-neutral-800 border-1 border-[#8c5cff] size-10 rounded-sm cursor-pointer hover:bg-neutral-700 transition"
+                onClick={() => signIn("google")}
+              >
                 <FcGoogle size={32} />
               </button>
               <button className="flex items-center justify-center bg-neutral-800 border-1 border-[#8c5cff] size-10 rounded-sm cursor-pointer hover:bg-neutral-700 transition">
