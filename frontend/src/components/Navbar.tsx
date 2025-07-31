@@ -14,31 +14,13 @@ import * as motion from "motion/react-client";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
-import { Progress } from "./ui/progress";
-import { Button } from "./ui/button";
+
+import UsedSpaceBar from "./App/Navbar/UsedSpaceBar";
 
 function Navbar() {
-  //   const [shortCut, setShortcut] = useState<"CTRL" | "⌘" | "">("");
-
   const pathName = usePathname();
   const t = useTranslations();
-  //   const isDesktop = useMediaQuery();
 
-  //   useEffect(() => {
-  //     const system = navigator.userAgent.toLowerCase();
-  //     if (system.includes("win")) {
-  //       setShortcut("CTRL");
-  //     }
-  //     if (system.includes("mac")) {
-  //       setShortcut("⌘");
-  //     }
-  //   }, []);
-
-  //   if (!shortCut) return <NavbarSkeleton />;
-
-  //   if (!isDesktop) return null;
-
-  //   if (isDesktop) {
   return (
     <nav className="min-w-[200px] h-full overflow-y-hidden mt-2 ">
       <motion.div
@@ -138,9 +120,7 @@ function Navbar() {
             <p className="text-xs mb-2">
               {t("dashboard_page.navbar.UsedStorage")}
             </p>
-            <Progress value={70} className="bg-primary" />
-            <p className="text-xs font-bold mt-2">8.23GB / 10.00GB</p>
-
+            <UsedSpaceBar />
             <Link
               href="/dashboard"
               className="text-xs mt-4 text-primary underline cursor-pointer hover:text-accent"

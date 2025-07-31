@@ -1,9 +1,7 @@
 import NextAuth, { DefaultSession } from "next-auth";
-import Credentials from "next-auth/providers/credentials";
+
 import Google from "next-auth/providers/google";
-import bcrypt from "bcryptjs";
-import { loginSchema } from "./lib/schemas/shemas";
-import { getUserByEmail } from "./utils/dataBase/User/user";
+import { handleUserData } from "./utils/dataBase/User/user";
 
 declare module "next-auth" {
   interface Session extends DefaultSession {
@@ -30,39 +28,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     signIn: "/",
   },
   providers: [
-    Credentials({
-      credentials: {
-        email: { type: "email", label: "Email" },
-        password: { type: "password" },
-      },
-      authorize: async (credentials) => {
-        // PRZY LGOOWANIU
-        // test@test.com
-        // tajnehaslo
-
-        const data = await loginSchema.parseAsync(credentials);
-        // TODO jakas zwrotka
-
-        const { email, password } = data;
-
-        const user = await getUserByEmail(email);
-
-        if (!user) return null;
-
-        const hash = await bcrypt.compare(password, user.hashPassword);
-
-        if (!hash) return null;
-
-        console.log("ZALOGOWANO");
-
-        return {
-          id: user.id,
-          email: user.email,
-          name: user.name,
-          imageUrl: user.imageUrl,
-        };
-      },
-    }),
     Google({
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_SECRET,
@@ -78,11 +43,16 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     },
     async session({ session, token }) {
       if (token) {
-        session.userId = token.id;
-        session.user.email = token.email;
-        session.user.id = token.id;
-        session.user.imageUrl = token.imageUrl;
-        session.user.name = token.name;
+        const user = await handleUserData({
+          name: session.user.name,
+          email: session.user.email,
+          imageUrl: session.user.image || "",
+        });
+
+        session.user.email = user.email;
+        session.user.id = user.id;
+        session.user.imageUrl = user.imageUrl;
+        session.user.name = user.name;
       }
       return session;
     },
