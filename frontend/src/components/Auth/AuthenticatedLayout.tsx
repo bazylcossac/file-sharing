@@ -4,7 +4,7 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import MainLoader from "../App/MainLoader";
 import useUserStore from "@/utils/store/User/user.bear";
-
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 export default function AuthenticatedLayout({
   children,
 }: {
@@ -13,6 +13,7 @@ export default function AuthenticatedLayout({
   const { status, data } = useSession();
   const setUserData = useUserStore((state) => state.setUserData);
   const router = useRouter();
+  const queryClient = new QueryClient();
 
   useEffect(() => {
     if (status === "unauthenticated" || status === "loading") {
@@ -32,5 +33,7 @@ export default function AuthenticatedLayout({
     return <MainLoader />;
   }
 
-  return <>{children}</>;
+  return (
+    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+  );
 }

@@ -25,15 +25,10 @@ export default function Home() {
     register,
     handleSubmit,
     formState: { errors },
-    watch,
   } = useForm({ resolver: zodResolver(signInSchema) });
 
   const submitFunction = (data: SignUpData) => {
-    const watchPassword = watch("password");
-    const watchEmail = watch("email");
     console.log(data);
-    console.log(watchPassword);
-    console.log(watchEmail);
   };
 
   return (
