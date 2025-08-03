@@ -13,7 +13,7 @@ import {
 import { useTranslations } from "next-intl";
 import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
-import { fileCreateInit, fileCreateSchema } from "@/constants/File/FileCreate";
+import { fileCreateInit, fileCreateSchema } from "@/constants/File/File";
 import { Switch } from "@/components/ui/switch";
 const FileComponent = () => {
   const [secureSwitch, setSecureSwitch] = useState(false);

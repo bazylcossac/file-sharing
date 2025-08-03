@@ -4,10 +4,12 @@ import { Progress } from "@/components/ui/progress";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useUserSpace } from "@/hooks/components/Navbar/getUsedSpace";
 import { getBytesToGb } from "@/utils/bytesToGb";
+import { useTranslations } from "next-intl";
 
 import { useMemo } from "react";
 
 export default function UsedSpaceBar() {
+  const t = useTranslations();
   const { data, isLoading, isError, refetch } = useUserSpace();
 
   const { usedPercentage, usedSpace, availableSpace } = useMemo(() => {
@@ -18,7 +20,7 @@ export default function UsedSpaceBar() {
     return (
       <div>
         <Button className="cursor-pointer h-8" onClick={() => refetch()}>
-          Refetch
+          {t("dashboard_page.navbar.refetch")}
         </Button>
       </div>
     );

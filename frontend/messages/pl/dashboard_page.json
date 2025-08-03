@@ -8,6 +8,7 @@
     "Spam": "Spam",
     "Bin": "Kosz",
     "UsedStorage": "Zużyte miejsce",
-    "need_more_space": "Potrzebujesz więcej miejsca?"
+    "need_more_space": "Potrzebujesz więcej miejsca?",
+    "refetch": "Spróbuj jescze raz"
   }
 }

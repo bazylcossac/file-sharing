@@ -22,7 +22,7 @@ function Navbar() {
   const t = useTranslations();
 
   return (
-    <nav className="min-w-[200px] h-full overflow-y-hidden mt-2 ">
+    <nav className="min-w-[220px] h-full overflow-y-hidden mt-2 ">
       <motion.div
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
