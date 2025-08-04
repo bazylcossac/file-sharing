@@ -3,11 +3,10 @@ import z from "zod";
 export const fileCreateSchema = z.object({
   name: z.string(),
   secure: z.boolean(),
-  maxSize: z.number(),
-  password: z
-    .string()
-    .min(5, { message: "common.createFile.passwordTooShort" }),
+  maxSize: z.string(),
+  password: z.string().optional(),
   sharedPeople: z.string().array().optional(),
+  backgroundImage: z.string().url(),
 });
 
 export type FileCreateType = z.infer<typeof fileCreateSchema>;
@@ -15,7 +14,8 @@ export type FileCreateType = z.infer<typeof fileCreateSchema>;
 export const fileCreateInit: FileCreateType = {
   name: "",
   secure: false,
-  maxSize: 0,
+  maxSize: "",
   password: "",
   sharedPeople: [],
+  backgroundImage: "",
 };

@@ -9,6 +9,7 @@
     "passwordTooShort": "Password is too short",
     "secureSpace": "Secure your space",
     "optional": "optional",
-    "setPassword": "Set password"
+    "setPassword": "Set password",
+    "file_image": "File image"
   }
 }

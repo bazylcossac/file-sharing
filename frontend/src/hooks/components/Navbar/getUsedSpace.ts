@@ -1,4 +1,4 @@
-import { fetchUserSpace } from "@/actions/actions";
+import { fetchUserSpace } from "@/actions/userActions.ts/actions";
 import { USER_QUERY_KEYS } from "@/constants/queryKeys";
 import { useQuery } from "@tanstack/react-query";
 

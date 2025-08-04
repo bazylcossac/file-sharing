@@ -9,6 +9,9 @@ import { useTranslations } from "next-intl";
 import { useMemo } from "react";
 
 export default function UsedSpaceBar() {
+
+/// dodac obsluge dla mb 
+
   const t = useTranslations();
   const { data, isLoading, isError, refetch } = useUserSpace();
 

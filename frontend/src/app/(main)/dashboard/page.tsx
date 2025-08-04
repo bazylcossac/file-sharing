@@ -1,7 +1,9 @@
+"use client";
 import React from "react";
 import FileComponent from "@/components/App/dashboard/FileComponent";
 import EmptyFileComponent from "@/components/App/dashboard/EmptyFileComponent";
 import { FileType } from "@/@types/file";
+import { useUserFiles } from "@/hooks/components/dashboard/getUserFiles";
 
 const data: FileType[] = [
   {
@@ -54,17 +56,27 @@ const data: FileType[] = [
   },
 ];
 
-function page() {
+function Page() {
+  const { data, isLoading, isError } = useUserFiles();
+
+  if (isLoading || !data) {
+    return <p>loading</p>;
+  }
+
+  if (isError) {
+    return <p>error</p>;
+  }
+
   return (
     <div className="">
       <EmptyFileComponent />
       <div className="flex gap-2 flex-wrap w-full">
-        {data.map((file: FileType) => (
+        {/* {data?.map((file: FileType) => (
           <FileComponent {...file} key={file.id} />
-        ))}
+        ))} */}
       </div>
     </div>
   );
 }
 
-export default page;
+export default Page;

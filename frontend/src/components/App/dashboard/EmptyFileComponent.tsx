@@ -15,13 +15,23 @@ import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
 import { fileCreateInit, fileCreateSchema } from "@/constants/File/File";
 import { Switch } from "@/components/ui/switch";
+import { Button } from "@/components/ui/button";
 const FileComponent = () => {
   const [secureSwitch, setSecureSwitch] = useState(false);
   const t = useTranslations();
-  const { register } = useForm({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
     resolver: zodResolver(fileCreateSchema),
     defaultValues: fileCreateInit,
   });
+
+  const addFile = (data: unknown) => {
+    console.log(data);
+  };
+
   return (
     <div className="">
       <Dialog>
@@ -34,29 +44,37 @@ const FileComponent = () => {
           <DialogHeader>
             <DialogTitle>{t("common.createFile.createNewSpace")}</DialogTitle>
             <DialogDescription>
-              <div>
-                <p>{t("common.createFile.spaceName")}</p>
-                <Input {...register("name")} />
-              </div>
-              <div>
-                <p>{t("common.createFile.maxSize")}</p>
-                <Input type="number" {...register("maxSize")} />
-              </div>
-              <div>
-                <p>{t("common.createFile.secureSpace")}</p>
-                <p className="text-xs">*{t("common.createFile.optional")}</p>
-                <Switch
-                  {...register("secure")}
-                  checked={secureSwitch}
-                  onCheckedChange={setSecureSwitch}
-                />
-                {secureSwitch && (
-                  <div>
-                    <p>{t("common.createFile.setPassword")}</p>
-                    <Input type="password" />
-                  </div>
-                )}
-              </div>
+              <form onSubmit={handleSubmit(addFile)}>
+                <div>
+                  <p>{t("common.createFile.spaceName")}</p>
+                  <Input {...register("name")} />
+                </div>
+                <div>
+                  <p>{t("common.createFile.maxSize")}</p>
+                  <Input type="number" {...register("maxSize")} />
+                  {errors?.maxSize && <p>{errors.maxSize.message}</p>}
+                </div>
+                <div>
+                  <p>{t("common.createFile.file_image")}</p>
+                  <Input type="text" {...register("backgroundImage")} />
+                </div>
+                <div>
+                  <p>{t("common.createFile.secureSpace")}</p>
+                  <p className="text-xs">*{t("common.createFile.optional")}</p>
+                  <Switch
+                    {...register("secure")}
+                    checked={secureSwitch}
+                    onCheckedChange={setSecureSwitch}
+                  />
+                  {secureSwitch && (
+                    <div>
+                      <p>{t("common.createFile.setPassword")}</p>
+                      <Input type="password" />
+                    </div>
+                  )}
+                </div>
+                <Button>Submit</Button>
+              </form>
             </DialogDescription>
           </DialogHeader>
         </DialogContent>

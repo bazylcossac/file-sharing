@@ -9,6 +9,7 @@
     "passwordTooShort": "Hasło jest za krótkie",
     "secureSpace": "Zbezpiecz przestrzeń",
     "optional": "opcjonalne",
-    "setPassword": "Podaj hasło"
+    "setPassword": "Podaj hasło",
+    "file_image": "Obrazek"
   }
 }
