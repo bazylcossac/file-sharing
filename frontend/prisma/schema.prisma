@@ -25,7 +25,7 @@ model File {
   backgroundImage String
   size            BigInt   @default(0)
   secure          Boolean
-  password        String
+  password        String?
   name            String
   User            User?    @relation(fields: [userId], references: [id])
 }

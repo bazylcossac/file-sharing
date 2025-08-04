@@ -13,27 +13,43 @@ import {
 import { useTranslations } from "next-intl";
 import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
-import { fileCreateInit, fileCreateSchema } from "@/constants/File/File";
 import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
+import { useMutateAddUserFiles } from "@/hooks/components/dashboard/mutateUserFiles";
+import { fileCreateInit, FileSchema } from "@/@types/file";
+
 const FileComponent = () => {
   const [secureSwitch, setSecureSwitch] = useState(false);
   const t = useTranslations();
+  const mutation = useMutateAddUserFiles();
+
   const {
     register,
     handleSubmit,
+    setValue,
+    watch,
     formState: { errors },
   } = useForm({
-    resolver: zodResolver(fileCreateSchema),
+    resolver: zodResolver(FileSchema),
     defaultValues: fileCreateInit,
   });
 
-  const addFile = (data: unknown) => {
-    console.log(data);
+  // Synchronizuj secureSwitch z polem secure w formularzu
+  React.useEffect(() => {
+    setValue("secure", secureSwitch);
+    if (!secureSwitch) setValue("password", undefined);
+  }, [secureSwitch, setValue]);
+
+  const onSubmit = (data: any) => {
+    // Jeśli secureSwitch jest aktywny, password musi być stringiem
+    if (!secureSwitch) {
+      delete data.password;
+    }
+    mutation.mutate(data);
   };
 
   return (
-    <div className="">
+    <div>
       <Dialog>
         <DialogTrigger>
           <div className="bg-neutral-700/20 py-2 w-14 mb-4 flex items-center justify-center rounded-md cursor-pointer hover:bg-neutral-600/30 hover:text-neutral-200 transition">
@@ -44,36 +60,43 @@ const FileComponent = () => {
           <DialogHeader>
             <DialogTitle>{t("common.createFile.createNewSpace")}</DialogTitle>
             <DialogDescription>
-              <form onSubmit={handleSubmit(addFile)}>
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <div>
                   <p>{t("common.createFile.spaceName")}</p>
                   <Input {...register("name")} />
+                  {errors?.name && <p>{errors.name.message}</p>}
                 </div>
                 <div>
                   <p>{t("common.createFile.maxSize")}</p>
-                  <Input type="number" {...register("maxSize")} />
-                  {errors?.maxSize && <p>{errors.maxSize.message}</p>}
+                  <Input
+                    type="number"
+                    {...register("size", { valueAsNumber: true })}
+                  />
+                  {errors?.size && <p>{errors.size.message}</p>}
                 </div>
                 <div>
                   <p>{t("common.createFile.file_image")}</p>
                   <Input type="text" {...register("backgroundImage")} />
+                  {errors?.backgroundImage && (
+                    <p>{errors.backgroundImage.message}</p>
+                  )}
                 </div>
                 <div>
                   <p>{t("common.createFile.secureSpace")}</p>
                   <p className="text-xs">*{t("common.createFile.optional")}</p>
                   <Switch
-                    {...register("secure")}
                     checked={secureSwitch}
                     onCheckedChange={setSecureSwitch}
                   />
                   {secureSwitch && (
                     <div>
                       <p>{t("common.createFile.setPassword")}</p>
-                      <Input type="password" />
+                      <Input type="password" {...register("password")} />
+                      {errors?.password && <p>{errors.password.message}</p>}
                     </div>
                   )}
                 </div>
-                <Button>Submit</Button>
+                <Button type="submit">Submit</Button>
               </form>
             </DialogDescription>
           </DialogHeader>

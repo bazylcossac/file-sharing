@@ -71,9 +71,9 @@ function Page() {
     <div className="">
       <EmptyFileComponent />
       <div className="flex gap-2 flex-wrap w-full">
-        {/* {data?.map((file: FileType) => (
+        {data?.map((file: FileType) => (
           <FileComponent {...file} key={file.id} />
-        ))} */}
+        ))}
       </div>
     </div>
   );

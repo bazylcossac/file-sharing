@@ -1,7 +1,9 @@
 "use server";
 
+import { FileSchema } from "@/@types/file";
 import { auth } from "@/auth";
 import prisma from "@/utils/dataBase/prisma";
+import { parse } from "path";
 
 export const fetchUserSpace = async () => {
   const user = await auth();
@@ -43,5 +45,32 @@ export const fetchUserFiles = async () => {
   } catch (err) {
     console.error("Failed to get user space ", err);
     throw new Error("Failed to get user space");
+  }
+};
+
+export const addFile = async (fileData: unknown) => {
+  const user = await auth();
+  if (!user) {
+    console.error("No session");
+    throw new Error("No session");
+  }
+
+  const parsedData = FileSchema.safeParse(fileData);
+  console.log(parsedData.error);
+  if (!parsedData.success) {
+    // toast message
+    return;
+  }
+
+  try {
+    await prisma.file.create({
+      data: {
+        ...parsedData.data,
+        userId: user.user.id,
+      },
+    });
+  } catch (err) {
+    console.error("Failed to create file ", err);
+    throw new Error("Failed to create file");
   }
 };

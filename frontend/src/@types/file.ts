@@ -1,31 +1,24 @@
 import z from "zod";
 
 export const FileSchema = z.object({
-  id: z.string(),
-  fileName: z.string(),
-  elements: z.number(),
-  size: z.number(),
-  backgroundImage: z.string().optional(),
-});
-
-export type FileType = z.infer<typeof FileSchema>;
-
-export const fileCreateSchema = z.object({
   name: z.string(),
   secure: z.boolean(),
-  maxSize: z.number(),
+  size: z.number().positive().min(1),
   password: z
     .string()
-    .min(5, { message: "common.createFile.passwordTooShort" }),
-  sharedPeople: z.string().array().optional(),
+    .min(5, { message: "common.createFile.passwordTooShort" })
+    .optional(),
+  sharedEmails: z.string().array().optional(),
+  backgroundImage: z.string().url(),
 });
 
-export type FileCreateType = z.infer<typeof fileCreateSchema>;
+export type FileCreateType = z.infer<typeof FileSchema>;
 
 export const fileCreateInit: FileCreateType = {
   name: "",
   secure: false,
-  maxSize: 0,
+  size: 1,
   password: "",
-  sharedPeople: [],
+  sharedEmails: [],
+  backgroundImage: "",
 };

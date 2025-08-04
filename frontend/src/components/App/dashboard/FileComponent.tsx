@@ -1,17 +1,11 @@
 "use client";
-import { FileType } from "@/@types/file";
+import { File } from "@prisma/client";
 import React, { useMemo } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 
-const FileComponent = ({
-  id,
-  fileName,
-  elements,
-  size,
-  backgroundImage,
-}: FileType) => {
+const FileComponent = ({ id, name, size, backgroundImage }: File) => {
   const router = useRouter();
   const imageUrl = useMemo(
     () =>
@@ -37,12 +31,12 @@ const FileComponent = ({
         priority
       />
       <div className=" top-0  bg-black/50 w-full rounded-md">
-        <p className="text-xs font-semibold p-2">{fileName}</p>
+        <p className="text-xs font-semibold p-2">{name}</p>
       </div>
       <div className="w-full bg-primary rounded-md text-white h-18 flex flex-col">
         <div className="m-1">
           <p className="text-xs">
-            {t("common.file.elements")}: {elements}
+            {t("common.file.elements")}: {10}
           </p>
           <p className="text-xs">{size} MB</p>
         </div>
