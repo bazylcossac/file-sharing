@@ -16,7 +16,7 @@ export default function AuthenticatedLayout({
   const queryClient = new QueryClient();
 
   useEffect(() => {
-    if (status === "unauthenticated" || status === "loading") {
+    if (status === "unauthenticated") {
       router.replace("/");
     } else {
       router.replace("/dashboard");
