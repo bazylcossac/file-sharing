@@ -50,7 +50,7 @@ function Navbar() {
               <Link
                 href="/storage"
                 className={cn("text-white/70 flex items-center gap-1 ", {
-                  "bg-primary text-white": pathName === "/storage",
+                  "bg-primary text-white": pathName.startsWith("/storage"),
                 })}
               >
                 <MdStorage />

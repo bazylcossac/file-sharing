@@ -28,7 +28,7 @@ export default function UserDropdown({
       <DropdownMenuItem
         variant="destructive"
         className="hover:bg-red-500"
-        onClick={() => signOut}
+        onClick={() => signOut()}
       >
         Logout
       </DropdownMenuItem>

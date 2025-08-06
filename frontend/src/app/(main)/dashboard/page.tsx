@@ -2,65 +2,22 @@
 import React from "react";
 import FileComponent from "@/components/App/dashboard/FileComponent";
 import EmptyFileComponent from "@/components/App/dashboard/EmptyFileComponent";
-import { FileType } from "@/@types/file";
-import { useUserFiles } from "@/hooks/components/dashboard/getUserFiles";
 
-const data: FileType[] = [
-  {
-    id: "123123",
-    fileName: "Test File",
-    elements: 13,
-    size: 31,
-    backgroundImage:
-      "https://cdn.dlcompare.com/game_tetiere/upload/gameimage/file/grand-theft-auto-v-enhanced-scre-5b30d0ae-file-5b30d0a1.jpg.webp",
-  },
-  {
-    id: "123123321",
-    fileName: "Games Screens",
-    elements: 42,
-    size: 352,
-    backgroundImage:
-      "https://cdn.dlcompare.com/game_tetiere/upload/gameimage/file/black-myth-wukong-file-84439423e.jpg.webp",
-  },
-  {
-    id: "1231233211",
-    fileName: "Test File",
-    elements: 13,
-    size: 31,
-    backgroundImage:
-      "https://cdn.dlcompare.com/game_tetiere/upload/gameimage/file/grand-theft-auto-v-enhanced-scre-5b30d0ae-file-5b30d0a1.jpg.webp",
-  },
-  {
-    id: "1231233232321",
-    fileName: "Games Screens",
-    elements: 42,
-    size: 3233,
-    backgroundImage:
-      "https://cdn.dlcompare.com/game_tetiere/upload/gameimage/file/black-myth-wukong-file-84439423e.jpg.webp",
-  },
-  {
-    id: "123222123",
-    fileName: "Test File",
-    elements: 13,
-    size: 31,
-    backgroundImage:
-      "https://cdn.dlcompare.com/game_tetiere/upload/gameimage/file/grand-theft-auto-v-enhanced-scre-5b30d0ae-file-5b30d0a1.jpg.webp",
-  },
-  {
-    id: "1231233221",
-    fileName: "Games Screens",
-    elements: 42,
-    size: 352,
-    backgroundImage:
-      "https://cdn.dlcompare.com/game_tetiere/upload/gameimage/file/black-myth-wukong-file-84439423e.jpg.webp",
-  },
-];
+import { useUserFiles } from "@/hooks/components/dashboard/getUserFiles";
+import { FileType } from "@/@types/file";
+import { Skeleton } from "@/components/ui/skeleton";
 
 function Page() {
   const { data, isLoading, isError } = useUserFiles();
 
-  if (isLoading || !data) {
-    return <p>loading</p>;
+  if (!isLoading) {
+    return (
+      <div className="flex-1 flex-row">
+        {Array.from(Array(3)).map((_, i) => {
+          return <Skeleton className="w-auto h-24 rounded-nd my-2" key={i} />;
+        })}
+      </div>
+    );
   }
 
   if (isError) {
@@ -68,9 +25,9 @@ function Page() {
   }
 
   return (
-    <div className="">
+    <div>
       <EmptyFileComponent />
-      <div className="flex gap-2 flex-wrap w-full">
+      <div className="w-full flex gap-2 flex-wrap">
         {data?.map((file: FileType) => (
           <FileComponent {...file} key={file.id} />
         ))}
