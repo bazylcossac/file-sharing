@@ -36,7 +36,6 @@ const CreateFileDialog = () => {
   const onSubmit = (data: unknown) => {
     const parsedData = File.safeParse(data);
     if (!parsedData.success) {
-      console.log("fail");
       toast.error(t("common.createFile.toasts.error"));
       setOpen(false);
       return;
