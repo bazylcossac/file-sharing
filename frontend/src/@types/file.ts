@@ -1,14 +1,11 @@
 import z from "zod";
 
-export const FileCreateSchema = z.object({
+export const File = z.object({
   name: z.string(),
-  secure: z.boolean(),
-  size: z.bigint().positive(),
-  password: z
-    .string()
-    .min(5, { message: "common.createFile.passwordTooShort" })
-    .nullable(),
-  sharedEmails: z.string().array(),
+  secure: z.boolean().optional(),
+  size: z.bigint().positive().optional(),
+  password: z.string().nullable().optional(),
+  sharedEmails: z.string().array().optional(),
   backgroundImage: z.string().url(),
 });
 
@@ -17,9 +14,9 @@ export const UserFileData = z.object({
   userId: z.string(),
 });
 
-export const FileSchema = FileCreateSchema.merge(UserFileData);
+export const FileSchema = File.merge(UserFileData);
 
-export type FileCreateType = z.infer<typeof FileCreateSchema>;
+export type FileCreateType = z.infer<typeof File>;
 
 export type FileType = z.infer<typeof FileSchema>;
 

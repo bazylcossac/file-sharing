@@ -1,9 +1,8 @@
 "use server";
-
-import { FileSchema } from "@/@types/file";
+import { File } from "@/@types/file";
 import { auth } from "@/auth";
 import prisma from "@/utils/dataBase/prisma";
-import { parse } from "path";
+import { toast } from "sonner";
 
 export const fetchUserSpace = async () => {
   const user = await auth();
@@ -55,10 +54,9 @@ export const addFile = async (fileData: unknown) => {
     throw new Error("No session");
   }
 
-  const parsedData = FileSchema.safeParse(fileData);
+  const parsedData = File.safeParse(fileData);
   console.log(parsedData.error);
   if (!parsedData.success) {
-    // toast message
     return;
   }
 

@@ -59,8 +59,6 @@ function Navbar() {
             </ul>
           </div>
 
-          {/* <UserNavbar /> */}
-
           <div className="mt-4">
             <ul className="flex flex-col [&>*]:m-0.25 [&>*]:text-white/70 [&>*]:text-sm [&>*]:py-1.75 [&>*]:hover:text-white [&>*]:hover:bg-accent [&>*]:rounded-md [&>*]:px-4 [&>*]:transition [&>*]:cursor-pointer gap-1">
               <Link

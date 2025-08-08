@@ -10,6 +10,10 @@
     "secureSpace": "Secure your space",
     "optional": "optional",
     "setPassword": "Set password",
-    "file_image": "File image"
+    "file_image": "File image",
+    "toasts": {
+      "error": "Failed to create file",
+      "success": "Successfully create file!"
+    }
   }
 }

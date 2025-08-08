@@ -10,6 +10,10 @@
     "secureSpace": "Zbezpiecz przestrzeń",
     "optional": "opcjonalne",
     "setPassword": "Podaj hasło",
-    "file_image": "Obrazek"
+    "file_image": "Obrazek",
+    "toasts": {
+      "error": "Bład przy tworzeniu pliku",
+      "success": "Stworzono plik!"
+    }
   }
 }
