@@ -2,8 +2,8 @@ import z from "zod";
 
 export const File = z.object({
   name: z.string(),
-  secure: z.boolean().optional(),
-  size: z.bigint().positive().optional(),
+  secure: z.boolean().nullable().optional(),
+  size: z.bigint().positive().nullable().optional(),
   password: z.string().nullable().optional(),
   sharedEmails: z.string().array().optional(),
   backgroundImage: z.string().url(),
