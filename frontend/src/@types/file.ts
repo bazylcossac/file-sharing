@@ -1,12 +1,16 @@
 import z from "zod";
 
 export const File = z.object({
-  name: z.string(),
+  name: z
+    .string({ message: "common.createFile.errors.invalid_name" })
+    .min(1, { message: "common.createFile.errors.name_too_short" }),
   secure: z.boolean().nullable().optional(),
   size: z.bigint().positive().nullable().optional(),
   password: z.string().nullable().optional(),
   sharedEmails: z.string().array().optional(),
-  backgroundImage: z.string().url(),
+  backgroundImage: z
+    .string()
+    .url({ message: "common.createFile.errors.invalid_url" }),
 });
 
 export const UserFileData = z.object({

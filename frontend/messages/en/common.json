@@ -14,6 +14,11 @@
     "toasts": {
       "error": "Failed to create file",
       "success": "Successfully create file!"
+    },
+    "errors": {
+      "invalid_url": "Invalid URL",
+      "invalid_name": "Invalid name",
+      "name_too_short": "Name is too short"
     }
   }
 }

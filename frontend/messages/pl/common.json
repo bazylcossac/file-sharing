@@ -14,6 +14,11 @@
     "toasts": {
       "error": "Bład przy tworzeniu pliku",
       "success": "Stworzono plik!"
+    },
+    "errors": {
+      "invalid_url": "Niepoprawny URL",
+      "name_too_short": "Nazwa jest za krótka",
+      "invalid_name": "Niepoprawna nazwa"
     }
   }
 }

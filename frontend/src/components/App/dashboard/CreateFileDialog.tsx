@@ -59,17 +59,26 @@ const CreateFileDialog = () => {
             <DialogTitle>{t("common.createFile.createNewSpace")}</DialogTitle>
             <DialogDescription></DialogDescription>
           </DialogHeader>
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="flex flex-col gap-4"
+          >
             <div>
-              <p>{t("common.createFile.spaceName")}</p>
+              <p className="py-2">{t("common.createFile.spaceName")}</p>
               <Input {...register("name")} />
-              {errors?.name && <p>{errors.name.message}</p>}
+              {errors?.name && (
+                <p className="text-sm py-2 text-accent">
+                  {t(errors.name.message!)}
+                </p>
+              )}
             </div>
             <div>
-              <p>{t("common.createFile.file_image")}</p>
+              <p className="py-2">{t("common.createFile.file_image")}</p>
               <Input type="text" {...register("backgroundImage")} />
               {errors?.backgroundImage && (
-                <p>{errors.backgroundImage.message}</p>
+                <p className="text-sm py-2 text-accent">
+                  {t(errors.backgroundImage.message!)}
+                </p>
               )}
             </div>
             <Button type="submit">Submit</Button>

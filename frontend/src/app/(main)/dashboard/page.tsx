@@ -25,9 +25,9 @@ function Page() {
   }
 
   return (
-    <div>
+    <div className="overflow-y-auto">
       <CreateFileDialog />
-      <div className="w-full flex gap-2 flex-wrap overflow-y-auto">
+      <div className="grid gap-2 lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2">
         {data?.map((file: FileType) => (
           <FileComponent {...file} key={file.id} />
         ))}

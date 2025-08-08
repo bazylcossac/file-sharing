@@ -19,7 +19,7 @@ const FileComponent = ({ id, name, size, backgroundImage }: FileType) => {
   const t = useTranslations();
   return (
     <div
-      className="hover:brightness-80 transition cursor-pointer flex flex-col gap-1 w-auto"
+      className="hover:brightness-80 transition cursor-pointer flex flex-col gap-1 flex-1"
       onClick={navigateToFile}
     >
       <Image
