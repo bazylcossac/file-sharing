@@ -25,6 +25,7 @@ type ModalProps = {
   trigger: ReactElement | ReactNode;
   triggerStyles?: string;
   descriptionStyles?: string;
+  titleKeyWord?: string;
 };
 
 const Modal = ({
@@ -36,6 +37,7 @@ const Modal = ({
   children,
   triggerStyles,
   descriptionStyles,
+  titleKeyWord,
 }: PropsWithChildren<ModalProps>) => {
   return (
     <Dialog onOpenChange={setOpen} open={open}>
@@ -43,7 +45,9 @@ const Modal = ({
       <DialogContent className="bg-[#2c2632]">
         <DialogHeader>
           <DialogTitle className={cn("text-lg font-extrabold", triggerStyles)}>
-            {title}
+            <div className="flex items-center gap-1">
+              {title} <p className="text-accent text-xl">{titleKeyWord}</p>
+            </div>
           </DialogTitle>
           {description && (
             <DialogDescription className={cn("", descriptionStyles)}>

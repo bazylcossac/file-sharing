@@ -12,7 +12,7 @@ function Folder() {
       <div className="flex justify-between">
         <div>folder page {folderId}</div>
         <div>
-          <FolderModal />
+          <FolderModal folderName="test folder" />
         </div>
       </div>
     </div>

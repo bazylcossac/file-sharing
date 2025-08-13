@@ -2,11 +2,17 @@
 
 import Modal from "@/components/Modal";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { RiDeleteBinLine } from "react-icons/ri";
 
-const FolderModal = () => {
+type FolderModalProps = {
+  folderName: string;
+};
+
+const FolderModal = ({ folderName }: FolderModalProps) => {
   const [open, setOpen] = useState(false);
+  const [inputValue, setInputValue] = useState("");
   return (
     <>
       {" "}
@@ -18,14 +24,26 @@ const FolderModal = () => {
         }
         open={open}
         setOpen={setOpen}
-        title="test"
+        title={`Do you really want to delete`}
+        titleKeyWord={`${folderName}?`}
         description="test"
       >
-        <div className="flex justify-between items-center">
-          <Button variant="secondary" onClick={() => setOpen(false)}>
-            Cancel
-          </Button>
-          <Button variant="destructive">Delete</Button>
+        <div>
+          <Input
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+          />
+          <div className="flex justify-between items-center mt-4">
+            <Button variant="secondary" onClick={() => setOpen(false)}>
+              Cancel
+            </Button>
+            <Button
+              variant="destructive"
+              disabled={!(inputValue === folderName)}
+            >
+              Delete
+            </Button>
+          </div>
         </div>
       </Modal>
     </>
