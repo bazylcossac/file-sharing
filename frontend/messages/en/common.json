@@ -1,24 +1,30 @@
 {
+  "delete": "Delete",
+  "cancel": "Cancel",
   "file": {
-    "elements": "Elements"
-  },
-  "createFile": {
-    "createNewSpace": "Create New Space",
-    "spaceName": "Space name",
-    "maxSize": "Maximum size",
-    "passwordTooShort": "Password is too short",
-    "secureSpace": "Secure your space",
-    "optional": "optional",
-    "setPassword": "Set password",
-    "file_image": "File image",
-    "toasts": {
-      "error": "Failed to create file",
-      "success": "Successfully create file!"
+    "elements": "Elements",
+    "createFile": {
+      "createNewSpace": "Create New Space",
+      "spaceName": "Space name",
+      "maxSize": "Maximum size",
+      "passwordTooShort": "Password is too short",
+      "secureSpace": "Secure your space",
+      "optional": "optional",
+      "setPassword": "Set password",
+      "file_image": "File image",
+      "toasts": {
+        "error": "Failed to create file",
+        "success": "Successfully create file!"
+      },
+      "errors": {
+        "invalid_url": "Invalid URL",
+        "invalid_name": "Invalid name",
+        "name_too_short": "Name is too short"
+      }
     },
-    "errors": {
-      "invalid_url": "Invalid URL",
-      "invalid_name": "Invalid name",
-      "name_too_short": "Name is too short"
+    "deleteFile": {
+      "title": "Do you really want to delete",
+      "description": "This action cannot be undone. To delete, please pass folder name."
     }
   }
 }

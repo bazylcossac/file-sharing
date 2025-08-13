@@ -1,24 +1,30 @@
 {
+  "delete": "Usuń",
+  "cancel": "Anuluj",
   "file": {
-    "elements": "Elementy"
-  },
-  "createFile": {
-    "createNewSpace": "Stwórz nową przestrzeń",
-    "spaceName": "Nazwa przestrzeni",
-    "maxSize": "Maksymalna przestrzeń",
-    "passwordTooShort": "Hasło jest za krótkie",
-    "secureSpace": "Zbezpiecz przestrzeń",
-    "optional": "opcjonalne",
-    "setPassword": "Podaj hasło",
-    "file_image": "Obrazek",
-    "toasts": {
-      "error": "Bład przy tworzeniu pliku",
-      "success": "Stworzono plik!"
+    "elements": "Elementy",
+    "createFile": {
+      "createNewSpace": "Stwórz nową przestrzeń",
+      "spaceName": "Nazwa przestrzeni",
+      "maxSize": "Maksymalna przestrzeń",
+      "passwordTooShort": "Hasło jest za krótkie",
+      "secureSpace": "Zbezpiecz przestrzeń",
+      "optional": "opcjonalne",
+      "setPassword": "Podaj hasło",
+      "file_image": "Obrazek",
+      "toasts": {
+        "error": "Bład przy tworzeniu pliku",
+        "success": "Stworzono plik!"
+      },
+      "errors": {
+        "invalid_url": "Niepoprawny URL",
+        "name_too_short": "Nazwa jest za krótka",
+        "invalid_name": "Niepoprawna nazwa"
+      }
     },
-    "errors": {
-      "invalid_url": "Niepoprawny URL",
-      "name_too_short": "Nazwa jest za krótka",
-      "invalid_name": "Niepoprawna nazwa"
+    "deleteFile": {
+      "title": "Na pewno chcesz usunąć",
+      "description": "Tej akcji nie można cofnąć. Aby usunąć folder, wpisz jego nazwę."
     }
   }
 }

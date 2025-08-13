@@ -55,7 +55,9 @@ const CreateFileDialog = () => {
         </DialogTrigger>
         <DialogContent className="bg-[#2c2632]">
           <DialogHeader>
-            <DialogTitle>{t("common.createFile.createNewSpace")}</DialogTitle>
+            <DialogTitle>
+              {t("common.file.createFile.createNewSpace")}
+            </DialogTitle>
             <DialogDescription></DialogDescription>
           </DialogHeader>
           <form
@@ -63,16 +65,16 @@ const CreateFileDialog = () => {
             className="flex flex-col gap-4"
           >
             <div>
-              <p className="py-2">{t("common.createFile.spaceName")}</p>
+              <p className="py-2">{t("common.file.createFile.spaceName")}</p>
               <Input {...register("name")} />
-              {errors?.name && (
+            {errors?.name && (
                 <p className="text-sm py-2 text-accent">
                   {t(errors.name.message!)}
                 </p>
               )}
             </div>
             <div>
-              <p className="py-2">{t("common.createFile.file_image")}</p>
+              <p className="py-2">{t("common.file.createFile.file_image")}</p>
               <Input type="text" {...register("backgroundImage")} />
               {errors?.backgroundImage && (
                 <p className="text-sm py-2 text-accent">
