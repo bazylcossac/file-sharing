@@ -6,6 +6,7 @@
 :root {
   --background: #faf5fa;
   --foreground: #501854;
+  --modalbackground: #2c2632;
   --card: #faf5fa;
   --card-foreground: #501854;
   --popover: #ffffff;
