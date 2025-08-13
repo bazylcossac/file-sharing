@@ -40,7 +40,7 @@ const Modal = ({
   return (
     <Dialog onOpenChange={setOpen} open={open}>
       <DialogTrigger>{trigger}</DialogTrigger>
-      <DialogContent className="bg-modalbackground">
+      <DialogContent className="bg-[#2c2632]">
         <DialogHeader>
           <DialogTitle className={cn("text-lg font-extrabold", triggerStyles)}>
             {title}
