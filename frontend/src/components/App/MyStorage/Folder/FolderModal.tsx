@@ -4,7 +4,7 @@ import Modal from "@/components/Modal";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useTranslations } from "next-intl";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { RiDeleteBinLine } from "react-icons/ri";
 
 type FolderModalProps = {
@@ -16,9 +16,10 @@ const FolderModal = ({ folderName }: FolderModalProps) => {
   const [inputValue, setInputValue] = useState("");
   const t = useTranslations();
 
+  const deleteFolder = () => {};
+  
   return (
     <>
-      {" "}
       <Modal
         trigger={
           <div className="size-8 bg-destructive hover:bg-destructive/70 flex items-center justify-center rounded-sm cursor-pointer">
@@ -41,6 +42,7 @@ const FolderModal = ({ folderName }: FolderModalProps) => {
               {t("common.cancel")}
             </Button>
             <Button
+              onClick={deleteFolder}
               variant="destructive"
               disabled={!(inputValue === folderName)}
             >

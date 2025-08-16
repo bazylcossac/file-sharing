@@ -72,3 +72,5 @@ export const addFile = async (fileData: unknown) => {
     throw new Error("Failed to create file");
   }
 };
+
+export const deleteFolder
