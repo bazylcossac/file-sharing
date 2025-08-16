@@ -3,7 +3,9 @@
 import Modal from "@/components/Modal";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useMutateDeleteFolder } from "@/hooks/components/dashboard/mutateUserFolders";
 import { useTranslations } from "next-intl";
+import { redirect, useParams } from "next/navigation";
 import { useState } from "react";
 import { RiDeleteBinLine } from "react-icons/ri";
 
@@ -13,10 +15,16 @@ type FolderModalProps = {
 
 const FolderModal = ({ folderName }: FolderModalProps) => {
   const [open, setOpen] = useState(false);
+  const { folderId } = useParams();
   const [inputValue, setInputValue] = useState("");
+  const { mutate: deleteFolder } = useMutateDeleteFolder();
   const t = useTranslations();
 
-  const deleteFolder = () => {};
+  const handleDeleteFolder = () => {
+    deleteFolder(String(folderId));
+    setOpen(false);
+    redirect("/dashboard");
+  };
 
   return (
     <>
@@ -42,7 +50,7 @@ const FolderModal = ({ folderName }: FolderModalProps) => {
               {t("common.cancel")}
             </Button>
             <Button
-              onClick={deleteFolder}
+              onClick={handleDeleteFolder}
               variant="destructive"
               disabled={!(inputValue === folderName)}
             >

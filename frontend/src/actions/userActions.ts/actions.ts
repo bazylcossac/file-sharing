@@ -67,7 +67,25 @@ export const addFolder = async (fileData: unknown) => {
       },
     });
   } catch (err) {
-    console.error("Failed to create file ", err);
-    throw new Error("Failed to create file");
+    console.error("Failed to create folder ", err);
+    throw new Error("Failed to create folder");
+  }
+};
+export const deleteFolder = async (folderId: string) => {
+  const user = await auth();
+  if (!user) {
+    console.error("No session");
+    throw new Error("No session");
+  }
+
+  try {
+    await prisma.folder.delete({
+      where: {
+        id: folderId,
+      },
+    });
+  } catch (err) {
+    console.error("Failed to delete folder ", err);
+    throw new Error("Failed to create folder");
   }
 };

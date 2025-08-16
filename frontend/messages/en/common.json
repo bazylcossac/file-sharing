@@ -25,7 +25,11 @@
     },
     "deleteFolder": {
       "title": "Do you really want to delete",
-      "description": "This action cannot be undone. To delete, please pass folder name."
+      "description": "This action cannot be undone. To delete, please pass folder name.",
+      "toasts": {
+        "error": "Failed to delete folder",
+        "success": "Successfully deleted folder!"
+      }
     }
   }
 }

@@ -15,14 +15,13 @@ import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
 
 import { Button } from "@/components/ui/button";
-import { useMutateAddUserFiles } from "@/hooks/components/dashboard/mutateUserFolders";
+import { useMutateAddUserFolder } from "@/hooks/components/dashboard/mutateUserFolders";
 import { Folder, fileCreateInit } from "@/@types/Folder";
-import { toast } from "sonner";
 
 const CreateFolderDialog = () => {
   const [open, setOpen] = useState(false);
   const t = useTranslations();
-  const mutation = useMutateAddUserFiles();
+  const mutation = useMutateAddUserFolder();
 
   const {
     register,
@@ -36,12 +35,10 @@ const CreateFolderDialog = () => {
   const onSubmit = (data: unknown) => {
     const parsedData = Folder.safeParse(data);
     if (!parsedData.success) {
-      toast.error(t("common.folder.createFolder.toasts.error"));
       setOpen(false);
       return;
     }
     mutation.mutate(data);
-    toast.success(t("common.folder.createFolder.toasts.success"));
     setOpen(false);
   };
 
