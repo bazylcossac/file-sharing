@@ -1,8 +1,7 @@
 "use server";
-import { File } from "@/@types/file";
+import { Folder } from "@/@types/Folder";
 import { auth } from "@/auth";
 import prisma from "@/utils/dataBase/prisma";
-import { toast } from "sonner";
 
 export const fetchUserSpace = async () => {
   const user = await auth();
@@ -28,14 +27,14 @@ export const fetchUserSpace = async () => {
   }
 };
 
-export const fetchUserFiles = async () => {
+export const fetchUserFolders = async () => {
   const user = await auth();
   if (!user) {
     console.error("No session");
     throw new Error("No session");
   }
   try {
-    const file = await prisma.file.findMany({
+    const file = await prisma.folder.findMany({
       where: {
         userId: user.user.id,
       },
@@ -47,21 +46,21 @@ export const fetchUserFiles = async () => {
   }
 };
 
-export const addFile = async (fileData: unknown) => {
+export const addFolder = async (fileData: unknown) => {
   const user = await auth();
   if (!user) {
     console.error("No session");
     throw new Error("No session");
   }
 
-  const parsedData = File.safeParse(fileData);
+  const parsedData = Folder.safeParse(fileData);
   console.log(parsedData.error);
   if (!parsedData.success) {
     return;
   }
 
   try {
-    await prisma.file.create({
+    await prisma.folder.create({
       data: {
         ...parsedData.data,
         userId: user.user.id,
@@ -72,5 +71,3 @@ export const addFile = async (fileData: unknown) => {
     throw new Error("Failed to create file");
   }
 };
-
-export const deleteFolder

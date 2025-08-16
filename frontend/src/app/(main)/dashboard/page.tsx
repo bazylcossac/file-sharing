@@ -1,14 +1,14 @@
 "use client";
 import React from "react";
-import FileComponent from "@/components/App/dashboard/FileComponent";
 
-import { useUserFiles } from "@/hooks/components/dashboard/getUserFiles";
-import { FileType } from "@/@types/file";
+import { useUserFolders } from "@/hooks/components/dashboard/getUserFolders";
+import { FolderType } from "@/@types/Folder";
 import { Skeleton } from "@/components/ui/skeleton";
 import CreateFileDialog from "@/components/App/dashboard/CreateFileDialog";
+import FolderComponent from "@/components/App/dashboard/FolderComponent";
 
 function Page() {
-  const { data, isLoading, isError } = useUserFiles();
+  const { data, isLoading, isError } = useUserFolders();
 
   if (isLoading) {
     return (
@@ -28,8 +28,8 @@ function Page() {
     <div className="mt-2">
       <CreateFileDialog />
       <div className="grid gap-2 lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 overflow-y-auto">
-        {data?.map((file: FileType) => (
-          <FileComponent {...file} key={file.id} />
+        {data?.map((file: FolderType) => (
+          <FolderComponent {...file} key={file.id} />
         ))}
       </div>
     </div>

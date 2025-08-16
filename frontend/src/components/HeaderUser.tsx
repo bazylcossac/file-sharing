@@ -10,7 +10,6 @@ function HeaderUser() {
     return session.data?.user;
   }, [session]);
 
-  ///
   return (
     <div className="flex flex-row items-center">
       <div className="flex items-center gap-2 hover:bg-neutral-700 transition rounded-md px-2 py-1 cursor-pointer">
@@ -18,9 +17,9 @@ function HeaderUser() {
           className="ml-2 bg-[#100a0e] border-none text-white"
           trigger={
             <div className="flex gap-2 ring-0 focus:ring-0 outline-none">
-              {userData?.image ? (
+              {userData?.imageUrl ? (
                 <Image
-                  src={userData?.image}
+                  src={userData?.imageUrl}
                   alt="user image"
                   width={25}
                   height={25}

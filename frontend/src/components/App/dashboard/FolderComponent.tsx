@@ -4,9 +4,9 @@ import React, { useMemo } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { FileType } from "@/@types/file";
+import { FolderType } from "@/@types/Folder";
 
-const FileComponent = ({ id, name, size, backgroundImage }: FileType) => {
+const FileComponent = ({ id, name, size, backgroundImage }: FolderType) => {
   const router = useRouter();
   const imageUrl = useMemo(
     () =>

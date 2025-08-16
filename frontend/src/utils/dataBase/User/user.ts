@@ -1,4 +1,4 @@
-import { UserType } from "@/@types/user";
+import { UserType } from "@/@types/User";
 import prisma from "../prisma";
 
 export const getUserByEmail = async (email: string) => {

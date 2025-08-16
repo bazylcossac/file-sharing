@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { userInitValues, UserType } from "@/@types/user";
+import { userInitValues, UserType } from "@/@types/User";
 
 type UserActions = {
   setUserData: (userData: UserType) => void;

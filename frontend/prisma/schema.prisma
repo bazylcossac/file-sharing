@@ -26,8 +26,8 @@ model File {
   name         String
   sharedEmails String[]
   User         User?    @relation(fields: [userId], references: [id])
-  folderId     String
-  Folder       Folder   @relation(fields: [folderId], references: [id])
+  folderId     String?
+  Folder       Folder?  @relation(fields: [folderId], references: [id])
 }
 
 model Folder {

@@ -1,4 +1,4 @@
-import { addFile } from "@/actions/userActions.ts/actions";
+import { addFolder } from "@/actions/userActions.ts/actions";
 import { USER_QUERY_KEYS } from "@/constants/queryKeys";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useTranslations } from "next-intl";
@@ -7,9 +7,11 @@ export const useMutateAddUserFiles = () => {
   const t = useTranslations();
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: addFile,
+    mutationFn: addFolder,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: [USER_QUERY_KEYS.userFiles] });
+      queryClient.invalidateQueries({
+        queryKey: [USER_QUERY_KEYS.userFolders],
+      });
     },
     onError: () => {
       toast.error(t("common.createFile.toasts.error"));

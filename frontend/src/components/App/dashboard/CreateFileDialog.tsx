@@ -15,8 +15,8 @@ import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
 
 import { Button } from "@/components/ui/button";
-import { useMutateAddUserFiles } from "@/hooks/components/dashboard/mutateUserFiles";
-import { File, fileCreateInit } from "@/@types/file";
+import { useMutateAddUserFiles } from "@/hooks/components/dashboard/mutateUserFolders";
+import { Folder, fileCreateInit } from "@/@types/Folder";
 import { toast } from "sonner";
 
 const CreateFileDialog = () => {
@@ -29,12 +29,12 @@ const CreateFileDialog = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: zodResolver(File),
+    resolver: zodResolver(Folder),
     defaultValues: fileCreateInit,
   });
 
   const onSubmit = (data: unknown) => {
-    const parsedData = File.safeParse(data);
+    const parsedData = Folder.safeParse(data);
     if (!parsedData.success) {
       toast.error(t("common.createFile.toasts.error"));
       setOpen(false);
@@ -67,7 +67,7 @@ const CreateFileDialog = () => {
             <div>
               <p className="py-2">{t("common.file.createFile.spaceName")}</p>
               <Input {...register("name")} />
-            {errors?.name && (
+              {errors?.name && (
                 <p className="text-sm py-2 text-accent">
                   {t(errors.name.message!)}
                 </p>

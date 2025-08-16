@@ -1,6 +1,6 @@
 import z from "zod";
 
-export const File = z.object({
+export const Folder = z.object({
   name: z
     .string({ message: "common.createFile.errors.invalid_name" })
     .min(1, { message: "common.createFile.errors.name_too_short" }),
@@ -18,13 +18,13 @@ export const UserFileData = z.object({
   userId: z.string(),
 });
 
-export const FileSchema = File.merge(UserFileData);
+export const FolderSchema = Folder.merge(UserFileData);
 
-export type FileCreateType = z.infer<typeof File>;
+export type FolderCreateType = z.infer<typeof Folder>;
 
-export type FileType = z.infer<typeof FileSchema>;
+export type FolderType = z.infer<typeof FolderSchema>;
 
-export const fileCreateInit: FileCreateType = {
+export const fileCreateInit: FolderCreateType = {
   name: "",
   secure: false,
   size: 100n,
