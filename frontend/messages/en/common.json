@@ -1,9 +1,10 @@
 {
   "delete": "Delete",
   "cancel": "Cancel",
-  "file": {
+  "folder": {
+    "no_data": "No folders yet",
     "elements": "Elements",
-    "createFile": {
+    "createFolder": {
       "createNewSpace": "Create New Space",
       "spaceName": "Space name",
       "maxSize": "Maximum size",
@@ -11,10 +12,10 @@
       "secureSpace": "Secure your space",
       "optional": "optional",
       "setPassword": "Set password",
-      "file_image": "File image",
+      "folder_image": "Folder image",
       "toasts": {
-        "error": "Failed to create file",
-        "success": "Successfully create file!"
+        "error": "Failed to create folder",
+        "success": "Successfully create folder!"
       },
       "errors": {
         "invalid_url": "Invalid URL",
@@ -22,7 +23,7 @@
         "name_too_short": "Name is too short"
       }
     },
-    "deleteFile": {
+    "deleteFolder": {
       "title": "Do you really want to delete",
       "description": "This action cannot be undone. To delete, please pass folder name."
     }

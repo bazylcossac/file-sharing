@@ -14,7 +14,7 @@ export const useMutateAddUserFiles = () => {
       });
     },
     onError: () => {
-      toast.error(t("common.createFile.toasts.error"));
+      toast.error(t("common.folder.createFolder.toasts.error"));
     },
   });
 };

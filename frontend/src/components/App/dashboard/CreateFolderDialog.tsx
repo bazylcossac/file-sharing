@@ -19,7 +19,7 @@ import { useMutateAddUserFiles } from "@/hooks/components/dashboard/mutateUserFo
 import { Folder, fileCreateInit } from "@/@types/Folder";
 import { toast } from "sonner";
 
-const CreateFileDialog = () => {
+const CreateFolderDialog = () => {
   const [open, setOpen] = useState(false);
   const t = useTranslations();
   const mutation = useMutateAddUserFiles();
@@ -36,12 +36,12 @@ const CreateFileDialog = () => {
   const onSubmit = (data: unknown) => {
     const parsedData = Folder.safeParse(data);
     if (!parsedData.success) {
-      toast.error(t("common.createFile.toasts.error"));
+      toast.error(t("common.folder.createFolder.toasts.error"));
       setOpen(false);
       return;
     }
     mutation.mutate(data);
-    toast.success(t("common.createFile.toasts.success"));
+    toast.success(t("common.folder.createFolder.toasts.success"));
     setOpen(false);
   };
 
@@ -56,7 +56,7 @@ const CreateFileDialog = () => {
         <DialogContent className="bg-[#2c2632]">
           <DialogHeader>
             <DialogTitle>
-              {t("common.file.createFile.createNewSpace")}
+              {t("common.folder.createFolder.createNewSpace")}
             </DialogTitle>
             <DialogDescription></DialogDescription>
           </DialogHeader>
@@ -65,7 +65,9 @@ const CreateFileDialog = () => {
             className="flex flex-col gap-4"
           >
             <div>
-              <p className="py-2">{t("common.file.createFile.spaceName")}</p>
+              <p className="py-2">
+                {t("common.folder.createFolder.spaceName")}
+              </p>
               <Input {...register("name")} />
               {errors?.name && (
                 <p className="text-sm py-2 text-accent">
@@ -74,7 +76,9 @@ const CreateFileDialog = () => {
               )}
             </div>
             <div>
-              <p className="py-2">{t("common.file.createFile.file_image")}</p>
+              <p className="py-2">
+                {t("common.folder.createFolder.folder_image")}
+              </p>
               <Input type="text" {...register("backgroundImage")} />
               {errors?.backgroundImage && (
                 <p className="text-sm py-2 text-accent">
@@ -89,4 +93,4 @@ const CreateFileDialog = () => {
     </div>
   );
 };
-export default CreateFileDialog;
+export default CreateFolderDialog;

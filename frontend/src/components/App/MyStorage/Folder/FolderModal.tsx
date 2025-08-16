@@ -17,7 +17,7 @@ const FolderModal = ({ folderName }: FolderModalProps) => {
   const t = useTranslations();
 
   const deleteFolder = () => {};
-  
+
   return (
     <>
       <Modal
@@ -28,9 +28,9 @@ const FolderModal = ({ folderName }: FolderModalProps) => {
         }
         open={open}
         setOpen={setOpen}
-        title={`${t("common.file.deleteFile.title")}`}
+        title={`${t("common.folder.deleteFolder.title")}`}
         titleKeyWord={`${folderName}?`}
-        description={`${t("common.file.deleteFile.description")}`}
+        description={`${t("common.folder.deleteFolder.description")}`}
       >
         <div>
           <Input

@@ -2,8 +2,9 @@
   "delete": "Usuń",
   "cancel": "Anuluj",
   "file": {
+    "no_data": "Brak folderów",
     "elements": "Elementy",
-    "createFile": {
+    "createFolder": {
       "createNewSpace": "Stwórz nową przestrzeń",
       "spaceName": "Nazwa przestrzeni",
       "maxSize": "Maksymalna przestrzeń",
@@ -13,8 +14,8 @@
       "setPassword": "Podaj hasło",
       "file_image": "Obrazek",
       "toasts": {
-        "error": "Bład przy tworzeniu pliku",
-        "success": "Stworzono plik!"
+        "error": "Bład przy tworzeniu folderu",
+        "success": "Stworzono folder!"
       },
       "errors": {
         "invalid_url": "Niepoprawny URL",
@@ -22,7 +23,7 @@
         "invalid_name": "Niepoprawna nazwa"
       }
     },
-    "deleteFile": {
+    "deleteFolder": {
       "title": "Na pewno chcesz usunąć",
       "description": "Tej akcji nie można cofnąć. Aby usunąć folder, wpisz jego nazwę."
     }

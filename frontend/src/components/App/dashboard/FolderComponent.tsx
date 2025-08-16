@@ -37,7 +37,7 @@ const FileComponent = ({ id, name, size, backgroundImage }: FolderType) => {
       <div className="w-full bg-primary rounded-md text-white h-18 flex flex-col">
         <div className="m-1">
           <p className="text-xs">
-            {t("common.file.elements")}: {10}
+            {t("common.folder.elements")}: {10}
           </p>
           <p className="text-xs">{size} MB</p>
         </div>

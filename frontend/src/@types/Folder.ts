@@ -2,15 +2,15 @@ import z from "zod";
 
 export const Folder = z.object({
   name: z
-    .string({ message: "common.createFile.errors.invalid_name" })
-    .min(1, { message: "common.createFile.errors.name_too_short" }),
+    .string({ message: "common.folder.createFolder.errors.invalid_name" })
+    .min(1, { message: "common.folder.createFolder.errors.name_too_short" }),
   secure: z.boolean().nullable().optional(),
   size: z.bigint().positive().nullable().optional(),
   password: z.string().nullable().optional(),
   sharedEmails: z.string().array().optional(),
   backgroundImage: z
     .string()
-    .url({ message: "common.createFile.errors.invalid_url" }),
+    .url({ message: "common.folder.createFolder.errors.invalid_url" }),
 });
 
 export const UserFileData = z.object({
